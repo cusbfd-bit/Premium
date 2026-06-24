@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>PaynetChik – Premium</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow-x:hidden;}
+body{
+  background:linear-gradient(160deg,#030108 0%,#07031e 45%,#0b0820 100%);
+  background-attachment:fixed;
+  color:#eeeeff;
+  font-family:'DM Sans',sans-serif;
+  font-weight:600;
+}
+
+/* ══ MUSIC BTN ══ */
+.music-btn{
+  position:fixed;top:14px;right:14px;z-index:200;
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.2rem;
+  transition:background .2s,border .2s,transform .1s;
+  box-shadow:0 2px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.1);
+}
+.music-btn:active{transform:scale(.9);}
+.music-btn.on{
+  background:rgba(139,92,246,.2);
+  border-color:rgba(139,92,246,.4);
+  box-shadow:0 0 12px rgba(139,92,246,.3),inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+/* ══ WRAP ══ */
+.wrap{
+  max-width:420px;margin:0 auto;
+  padding:14px 12px 32px;
+  min-height:100vh;
+}
+
+/* ══ NEON HEADER ══ */
+.neon-header{text-align:center;margin-bottom:16px;padding:6px 0;}
+.neon-title{
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem;font-weight:900;letter-spacing:2px;
+  display:block;margin:4px 0 2px;line-height:1;
+}
+.nl{
+  display:inline-block;color:#ffeaa7;
+  text-shadow:0 0 5px rgba(255,200,100,.6),0 0 14px rgba(255,150,50,.4),0 0 28px rgba(255,100,0,.2);
+  animation:nFlick var(--nd,3.2s) var(--ndelay,0s) infinite;
+}
+@keyframes nFlick{
+  0%,28%,36%,68%,74%,100%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.6),0 0 14px rgba(255,150,50,.4),0 0 28px rgba(255,100,0,.2);}
+  30%,32%{color:rgba(255,200,100,.15);text-shadow:none;}
+  31%,33%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.5);}
+  70%,72%{color:rgba(255,200,100,.1);text-shadow:none;}
+  71%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.5),0 0 14px rgba(255,150,50,.3);}
+}
+.neon-sub{
+  font-family:'Playfair Display',serif;
+  font-size:.78rem;letter-spacing:7px;
+  color:rgba(245,200,66,.9);
+  text-shadow:0 0 8px rgba(245,200,66,.5),0 0 18px rgba(245,200,66,.25);
+  animation:subP 3s ease-in-out infinite;
+  display:block;margin-top:5px;
+}
+@keyframes subP{
+  0%,100%{opacity:.65;text-shadow:0 0 6px rgba(245,200,66,.3);}
+  50%{opacity:1;text-shadow:0 0 14px rgba(245,200,66,.6),0 0 28px rgba(245,200,66,.25);}
+}
+
+/* ══ LIQUID GLASS CARD ══ */
+.card{
+  background:rgba(255,255,255,0.045);
+  border:1px solid rgba(160,120,255,0.2);
+  border-radius:22px;
+  padding:16px 15px 18px;
+  backdrop-filter:blur(48px) saturate(1.4);
+  -webkit-backdrop-filter:blur(48px) saturate(1.4);
+  box-shadow:
+    0 8px 48px rgba(0,0,0,0.65),
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 1px 0 rgba(255,255,255,0.09) inset;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(180,150,255,.35),transparent);
+}
+.card::after{
+  content:'';position:absolute;
+  top:-60%;left:-40%;width:180%;height:180%;
+  background:radial-gradient(ellipse at 60% 30%,rgba(120,60,220,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* ══ USER BAR ══ */
+.user-bar{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(139,92,246,0.15);
+  border-radius:14px;padding:10px 13px;margin-bottom:15px;
+  backdrop-filter:blur(20px);
+}
+.ava{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#4c1d95,#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#fff;
+  box-shadow:0 2px 10px rgba(76,29,149,.5);
+}
+.uname{font-weight:700;font-size:.88rem;color:#e8e8ff;}
+.usub{font-size:.70rem;color:#6b6b8a;margin-top:1px;}
+
+/* ══ LABEL ══ */
+.lbl{font-size:.63rem;font-weight:700;color:#7070a0;text-transform:uppercase;letter-spacing:1.3px;margin-bottom:7px;}
+.mt-12{margin-top:13px;}
+
+/* ══ INPUT ══ */
+.inp-row{display:flex;gap:7px;margin-bottom:2px;align-items:stretch;}
+.inp-wrap{position:relative;flex:1;}
+.at-sign{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#a78bfa;font-weight:700;font-size:.95rem;pointer-events:none;}
+.inp-wrap input{
+  width:100%;
+  background:rgba(255,255,255,0.055);
+  border:1px solid rgba(255,255,255,0.11);
+  border-radius:13px;
+  padding:11px 12px 11px 26px;
+  color:#eeeeff;
+  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;outline:none;
+  transition:border .15s,box-shadow .15s,background .15s;
+}
+.inp-wrap input:focus{
+  border-color:rgba(139,92,246,.65);
+  box-shadow:0 0 0 3px rgba(139,92,246,.14);
+  background:rgba(255,255,255,0.07);
+}
+.inp-wrap input::placeholder{color:#55556a;font-weight:400;}
+.inp-err{font-size:.68rem;color:#f87171;margin-top:3px;margin-bottom:6px;display:none;font-weight:600;padding-left:2px;}
+.inp-err.show{display:block;}
+
+.ozimga-btn{
+  background:linear-gradient(135deg,#4c1d95,#7c3aed);
+  border:none;border-radius:13px;padding:0 14px;color:#fff;
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+  box-shadow:0 2px 12px rgba(76,29,149,.45);
+  transition:transform .1s,box-shadow .1s;
+}
+.ozimga-btn:active{transform:scale(.94);box-shadow:0 1px 5px rgba(76,29,149,.3);}
+
+/* ══ PLANS GRID ══ */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.plan{
+  background:rgba(255,255,255,0.045);
+  border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:15px;padding:12px 10px;cursor:pointer;
+  transition:border .18s,box-shadow .18s,background .18s,transform .12s;
+  position:relative;overflow:hidden;
+  -webkit-user-select:none;user-select:none;
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 10px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.plan:active{transform:scale(.96);}
+.plan.sel{
+  border-color:rgba(139,92,246,.9);
+  background:rgba(76,29,149,0.26);
+  box-shadow:0 0 0 3px rgba(139,92,246,.22),0 6px 22px rgba(76,29,149,.28),inset 0 1px 0 rgba(255,255,255,.1);
+}
+.p-mo{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;
+}
+.p-pr{font-size:.74rem;color:#7070a0;margin-top:3px;font-weight:600;}
+.plan.sel .p-pr{color:#a78bfa;}
+.p-note{font-size:.62rem;color:#34d399;margin-top:4px;display:none;font-weight:700;line-height:1.35;}
+.plan.sel .p-note{display:block;}
+.hot-badge{
+  position:absolute;top:5px;right:5px;
+  background:linear-gradient(135deg,#f5c842,#f97316);
+  color:#000;font-size:.54rem;font-weight:800;
+  padding:2px 6px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;
+}
+/* subtle gold pulse for 12-month card */
+.plan-12-trigger{animation:goldPulse 2.5s ease-in-out infinite;}
+@keyframes goldPulse{
+  0%,100%{box-shadow:0 2px 10px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);}
+  50%{box-shadow:0 2px 12px rgba(245,200,66,.1),0 0 16px rgba(245,200,66,.07),inset 0 1px 0 rgba(255,255,255,.07);}
+}
+.p-choose{font-size:.63rem;color:#a78bfa;margin-top:4px;font-weight:700;}
+
+/* ══ 12-MONTH SUB OPTIONS ══ */
+.sub12{
+  max-height:0;overflow:hidden;
+  transition:max-height .32s cubic-bezier(.4,0,.2,1),opacity .28s ease,margin .28s;
+  opacity:0;margin-top:0;
+}
+.sub12.open{max-height:220px;opacity:1;margin-top:8px;}
+.sub12-inner{display:flex;flex-direction:column;gap:7px;}
+
+.sub-plan{
+  background:rgba(255,255,255,0.045);
+  border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:15px;padding:11px 13px;cursor:pointer;
+  transition:all .18s;
+  -webkit-user-select:none;user-select:none;
+  backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.sub-plan:active{transform:scale(.98);}
+.sub-plan.sel{
+  border-color:rgba(139,92,246,.85);
+  background:rgba(76,29,149,0.24);
+  box-shadow:0 0 0 3px rgba(139,92,246,.18),0 4px 16px rgba(76,29,149,.22),inset 0 1px 0 rgba(255,255,255,.09);
+}
+.sp-title{
+  font-family:'Playfair Display',serif;
+  font-size:.93rem;font-weight:700;color:#eeeeff;
+}
+.sp-note{font-size:.63rem;margin-top:3px;font-weight:700;line-height:1.3;color:#34d399;}
+.sp-acc .sp-note{color:#fbbf24;}
+.sp-price{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;
+  color:#f5c842;white-space:nowrap;margin-left:8px;
+  text-shadow:0 0 8px rgba(245,200,66,.3);
+}
+
+/* ══ SUMMARY ══ */
+.summary{
+  background:rgba(76,29,149,0.08);
+  border:1px solid rgba(139,92,246,0.16);
+  border-radius:14px;padding:11px 14px;
+  margin-top:13px;margin-bottom:13px;
+  display:none;animation:fadeIn .2s ease;
+  backdrop-filter:blur(20px);
+}
+.summary.show{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}
+.s-row{display:flex;justify-content:space-between;font-size:.80rem;padding:3px 0;color:#7070a0;}
+.s-row span:last-child{color:#d0d0ee;font-weight:700;}
+.s-row.tot{
+  margin-top:8px;padding-top:9px;
+  border-top:1px solid rgba(255,255,255,0.08);font-weight:700;
+}
+.s-row.tot span:last-child{color:#f5c842;font-size:.92rem;text-shadow:0 0 6px rgba(245,200,66,.3);}
+
+/* ══ MAIN BUTTON ══ */
+.btn{
+  width:100%;
+  background:linear-gradient(135deg,#4c1d95,#5b21b6,#7c3aed);
+  border:1px solid rgba(139,92,246,.5);
+  border-radius:15px;padding:14px;color:#fff;
+  font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;letter-spacing:1px;
+  cursor:pointer;
+  box-shadow:0 8px 28px rgba(76,29,149,.55),0 2px 4px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16);
+  position:relative;overflow:hidden;
+  transition:opacity .15s,transform .1s,box-shadow .2s;
+  -webkit-user-select:none;user-select:none;
+}
+.btn:disabled{opacity:.28;cursor:not-allowed;box-shadow:none;border-color:rgba(255,255,255,.05);}
+.btn:not(:disabled):active{
+  transform:scale(.975);
+  box-shadow:0 3px 10px rgba(76,29,149,.3),inset 0 1px 0 rgba(255,255,255,.12);
+}
+.btn::before{
+  content:'';position:absolute;top:0;bottom:0;left:-55%;width:32%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  animation:shim 2.4s infinite;
+}
+@keyframes shim{0%{left:-55%;}100%{left:145%;}}
+
+/* ══ TOAST ══ */
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);
+  background:rgba(6,3,18,.97);border:1px solid rgba(139,92,246,.28);border-radius:12px;
+  padding:10px 20px;font-size:.80rem;color:#eeeeff;font-weight:600;
+  backdrop-filter:blur(14px);z-index:300;
+  transition:transform .28s cubic-bezier(.4,0,.2,1);white-space:nowrap;
+  box-shadow:0 4px 20px rgba(0,0,0,.5);
+}
+.toast.up{transform:translateX(-50%) translateY(0);}
+
+@keyframes spin{to{transform:rotate(360deg);}}
+.spinner{
+  display:inline-block;width:14px;height:14px;
+  border:2px solid rgba(255,255,255,.3);border-top-color:#fff;
+  border-radius:50%;animation:spin .6s linear infinite;
+  vertical-align:middle;margin-right:5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Music Toggle -->
+<button class="music-btn" id="musicBtn" onclick="handleMusicBtn()">🔇</button>
+
+<div class="wrap">
+
+  <!-- Neon Header -->
+  <div class="neon-header">
+    <div style="display:inline-block;padding:6px 16px 4px;">
+      <span class="neon-title" id="neonTitle"></span>
+      <span class="neon-sub">★ PREMIUM ★</span>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="card">
+
+    <!-- User Bar -->
+    <div class="user-bar">
+      <div class="ava" id="avaEl">?</div>
+      <div>
+        <div class="uname" id="unameEl">Yuklanmoqda…</div>
+        <div class="usub" id="usubEl">Telegram</div>
+      </div>
+    </div>
+
+    <!-- Username Input -->
+    <div class="lbl">Kimga yuborish</div>
+    <div class="inp-row">
+      <div class="inp-wrap">
+        <span class="at-sign">@</span>
+        <input type="text" id="tgt" placeholder="username" maxlength="32"
+               autocomplete="off" autocorrect="off" spellcheck="false"
+               inputmode="text">
+      </div>
+      <button class="ozimga-btn" onclick="fillSelf()">O'zimga</button>
+    </div>
+    <div class="inp-err" id="tgtErr"></div>
+
+    <!-- Plan Cards -->
+    <div class="lbl mt-12">Muddatni tanlang</div>
+    <div class="plans">
+
+      <!-- 1 Oy -->
+      <div class="plan" data-m="1" data-p="44 000" data-method="acc"
+           onclick="selectPlan(this)">
+        <div class="p-mo">1 Oy</div>
+        <div class="p-pr">44 000 so'm</div>
+        <div class="p-note">⚠️ Akkauntga kirib olib beriladi</div>
+      </div>
+
+      <!-- 3 Oy -->
+      <div class="plan" data-m="3" data-p="165 000" data-method="gift"
+           onclick="selectPlan(this)">
+        <div class="p-mo">3 Oy</div>
+        <div class="p-pr">165 000 so'm</div>
+        <div class="p-note">✅ Gift orqali yuboriladi</div>
+      </div>
+
+      <!-- 6 Oy -->
+      <div class="plan" data-m="6" data-p="220 000" data-method="gift"
+           onclick="selectPlan(this)">
+        <div class="p-mo">6 Oy</div>
+        <div class="p-pr">220 000 so'm</div>
+        <div class="p-note">✅ Gift orqali yuboriladi</div>
+      </div>
+
+      <!-- 12 Oy — trigger card (shows sub-options) -->
+      <div class="plan plan-12-trigger" id="plan12Btn"
+           onclick="toggle12(this)">
+        <span class="hot-badge">🔥 TOP</span>
+        <div class="p-mo">12 Oy</div>
+        <div class="p-pr" id="plan12PrLabel">385 000 / 300 000</div>
+        <div class="p-choose">▾ Variantni tanlang</div>
+      </div>
+
+    </div><!-- /plans -->
+
+    <!-- 12-month Sub Options (hidden by default) -->
+    <div class="sub12" id="sub12">
+      <div class="sub12-inner">
+
+        <!-- Safe / Gift -->
+        <div class="sub-plan" data-m="12" data-p="385 000" data-method="gift"
+             onclick="select12Plan(this)">
+          <div>
+            <div class="sp-title">12 Oy &nbsp;🔒 Xavfsiz</div>
+            <div class="sp-note">✅ Gift orqali yuboriladi</div>
+          </div>
+          <div class="sp-price">385 000</div>
+        </div>
+
+        <!-- Account login -->
+        <div class="sub-plan sp-acc" data-m="12" data-p="300 000" data-method="acc"
+             onclick="select12Plan(this)">
+          <div>
+            <div class="sp-title">12 Oy &nbsp;🔑 Akkauntga</div>
+            <div class="sp-note">⚠️ Akkauntga kirib olib beriladi 📳</div>
+          </div>
+          <div class="sp-price">300 000</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="summary" id="sumBox">
+      <div class="s-row"><span>Foydalanuvchi</span><span id="sUser">—</span></div>
+      <div class="s-row"><span>Xizmat</span><span>Telegram Premium</span></div>
+      <div class="s-row"><span>Muddat</span><span id="sMo">—</span></div>
+      <div class="s-row"><span>Usul</span><span id="sMethod">—</span></div>
+      <div class="s-row tot"><span>Jami</span><span id="sPr">—</span></div>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="btn" id="sendBtn" disabled onclick="sendOrder()">⭐ PREMIUM OLISH</button>
+
+  </div><!-- /card -->
+</div><!-- /wrap -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ════════════════════════════════════
+   NEON TITLE BUILD
+════════════════════════════════════ */
+(function(){
+  const el = document.getElementById('neonTitle');
+  const text = 'PaynetChik';
+  const delays = [0,.07,.14,.22,.30,.38,.46,.55,.64,.73];
+  const durs   = [3.2,2.8,3.5,3.0,2.6,3.8,2.9,3.3,3.1,2.7];
+  [...text].forEach((ch, i) => {
+    const s = document.createElement('span');
+    s.className = 'nl';
+    s.textContent = ch;
+    s.style.setProperty('--nd', durs[i % durs.length] + 's');
+    s.style.setProperty('--ndelay', delays[i % delays.length] + 's');
+    el.appendChild(s);
+  });
+})();
+
+/* ════════════════════════════════════
+   AUDIO SYSTEM
+   – Try autoplay immediately (works in Telegram WebView)
+   – Fallback: first touch anywhere
+════════════════════════════════════ */
+
+// Fun, upbeat, calm tracks (royalty-free CDN)
+const TRACKS = [
+  'https://cdn.pixabay.com/download/audio/2022/03/10/audio_2b5cba5b8a.mp3',  // happy lofi
+  'https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3',  // cheerful
+  'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3'   // ambient calm
+];
+
+let bgAudio = null;
+let musicOn = false;
+let audioUnlocked = false;
+let trackIdx = 0;
+
+function buildAudio(src) {
+  const a = new Audio();
+  a.loop = true;
+  a.volume = 0.26;
+  a.src = src;
+  return a;
+}
+
+function startMusic() {
+  if (musicOn) return;
+  if (!bgAudio) bgAudio = buildAudio(TRACKS[trackIdx]);
+  bgAudio.play().then(() => {
+    musicOn = true;
+    audioUnlocked = true;
+    removeUnlockListeners();
+    syncMusicBtn();
+  }).catch(() => {
+    // Try next track
+    trackIdx = (trackIdx + 1) % TRACKS.length;
+    bgAudio = buildAudio(TRACKS[trackIdx]);
+    bgAudio.play().then(() => {
+      musicOn = true;
+      audioUnlocked = true;
+      removeUnlockListeners();
+      syncMusicBtn();
+    }).catch(() => {
+      // Give up autoplay; rely on first-touch
+    });
+  });
+}
+
+function syncMusicBtn() {
+  const btn = document.getElementById('musicBtn');
+  if (musicOn) {
+    btn.textContent = '🎵';
+    btn.classList.add('on');
+  } else {
+    btn.textContent = '🔇';
+    btn.classList.remove('on');
+  }
+}
+
+/* First-touch fallback – skip if user taps music button itself */
+function onFirstTouch(e) {
+  if (audioUnlocked) { removeUnlockListeners(); return; }
+  if (e.target && e.target.closest && e.target.closest('#musicBtn')) return;
+  audioUnlocked = true;
+  removeUnlockListeners();
+  startMusic();
+}
+function removeUnlockListeners() {
+  document.removeEventListener('touchstart', onFirstTouch, true);
+  document.removeEventListener('click',      onFirstTouch, true);
+}
+
+document.addEventListener('touchstart', onFirstTouch, { passive:true, capture:true });
+document.addEventListener('click',      onFirstTouch, { capture:true });
+
+/* Music button handler – first tap starts; subsequent taps toggle */
+function handleMusicBtn() {
+  if (!audioUnlocked) {
+    audioUnlocked = true;
+    removeUnlockListeners();
+    if (!bgAudio) bgAudio = buildAudio(TRACKS[trackIdx]);
+    bgAudio.play().then(() => { musicOn = true; syncMusicBtn(); })
+             .catch(() => { musicOn = false; syncMusicBtn(); });
+    return;
+  }
+  if (musicOn) {
+    bgAudio.pause();
+    musicOn = false;
+  } else {
+    bgAudio.play().catch(() => {});
+    musicOn = true;
+  }
+  syncMusicBtn();
+}
+
+/* Try autoplay right away (Telegram WebView often allows it) */
+setTimeout(startMusic, 250);
+
+/* ════════════════════════════════════
+   WEB AUDIO — CLICK / SELECT SOUNDS
+════════════════════════════════════ */
+let audioCtx = null;
+function getCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function beep(freq, dur, type = 'sine', vol = 0.18, freqEnd = null) {
+  try {
+    const ctx = getCtx();
+    const osc  = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+    if (freqEnd) osc.frequency.exponentialRampToValueAtTime(freqEnd, ctx.currentTime + dur);
+    gain.gain.setValueAtTime(vol, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + dur);
+  } catch(_) {}
+}
+
+// Plan select: soft "pop"
+function sfxSelect()  { beep(680, 0.09, 'sine',     0.16, 420); }
+// Button click: satisfying "click"
+function sfxBtn()     { beep(540, 0.12, 'triangle', 0.2,  320); }
+// O'zimga button
+function sfxFill()    { beep(760, 0.08, 'sine',     0.14, 580); }
+// Success: two-note chime
+function sfxSuccess() {
+  beep(523, 0.14, 'sine', 0.22);
+  setTimeout(() => beep(784, 0.2, 'sine', 0.24), 130);
+}
+// 12-month expand
+function sfxExpand()  { beep(440, 0.1, 'triangle', 0.14, 600); }
+
+/* ════════════════════════════════════
+   TELEGRAM INIT
+════════════════════════════════════ */
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); }
+
+let uData = { id: null, username: null, first_name: 'Foydalanuvchi' };
+
+function initUser() {
+  if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    const u = tg.initDataUnsafe.user;
+    uData = {
+      id: u.id,
+      username: u.username || null,
+      first_name: u.first_name || 'Foydalanuvchi'
+    };
+  }
+  const disp = uData.username ? '@' + uData.username
+             : uData.id       ? 'ID: ' + uData.id
+             : "Noma'lum";
+  document.getElementById('avaEl').textContent = (uData.first_name || 'U').charAt(0).toUpperCase();
+  document.getElementById('unameEl').textContent = uData.first_name;
+  document.getElementById('usubEl').textContent  = disp;
+  validate();
+}
+
+function haptic(type = 'light') {
+  if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred(type);
+}
+function hapticNotify(type = 'success') {
+  if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred(type);
+}
+
+/* ════════════════════════════════════
+   FORM LOGIC
+════════════════════════════════════ */
+function fillSelf() {
+  sfxFill();
+  if (!uData.username) {
+    showToast("⚠️ Sizda username yo'q, qo'lda kiriting");
+    return;
+  }
+  document.getElementById('tgt').value = uData.username;
+  validate();
+}
+
+const USERNAME_RE = /^[a-zA-Z][a-zA-Z0-9_]{3,31}$/;
+let selPlan   = null;
+let is12Open  = false;
+
+/* Regular plan (1, 3, 6 oy) */
+function selectPlan(el) {
+  sfxSelect();
+  // Deselect everything
+  document.querySelectorAll('.plan, .sub-plan').forEach(p => p.classList.remove('sel'));
+  // Close 12-month sub-options if open
+  if (is12Open) close12Panel();
+
+  el.classList.add('sel');
+  selPlan = { m: el.dataset.m, p: el.dataset.p, method: el.dataset.method };
+
+  if (selPlan.method === 'acc') haptic('heavy');
+  else haptic('light');
+
+  updateSum();
+}
+
+/* Toggle 12-month sub-options panel */
+function toggle12(el) {
+  sfxExpand();
+  haptic('light');
+
+  // Deselect regular plans
+  document.querySelectorAll('.plan:not(#plan12Btn), .sub-plan').forEach(p => p.classList.remove('sel'));
+
+  is12Open = !is12Open;
+  const sub = document.getElementById('sub12');
+
+  if (is12Open) {
+    el.classList.add('sel');
+    sub.classList.add('open');
+    selPlan = null; // must pick sub-option
+    updateSum();
+  } else {
+    el.classList.remove('sel');
+    close12Panel();
+  }
+}
+
+function close12Panel() {
+  is12Open = false;
+  document.getElementById('sub12').classList.remove('open');
+  document.getElementById('plan12Btn').classList.remove('sel');
+  document.querySelectorAll('.sub-plan').forEach(p => p.classList.remove('sel'));
+}
+
+/* 12-month sub-option selection */
+function select12Plan(el) {
+  sfxSelect();
+
+  document.querySelectorAll('.sub-plan').forEach(p => p.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('plan12Btn').classList.add('sel');
+
+  const method = el.dataset.method;
+  if (method === 'acc') haptic('heavy');
+  else haptic('medium');
+
+  selPlan = {
+    m:      el.dataset.m,
+    p:      el.dataset.p,
+    method: method,
+    label:  el.querySelector('.sp-title').textContent.trim()
+  };
+
+  updateSum();
+}
+
+/* Input validation */
+const tgtInput = document.getElementById('tgt');
+const tgtErr   = document.getElementById('tgtErr');
+
+tgtInput.addEventListener('input', function () {
+  if (/(https?:\/\/|t\.me\/|tg:\/\/|www\.|\.com|\.uz|\.ru)/i.test(this.value)) {
+    showToast('❌ Link kiritish taqiqlangan');
+    this.value = '';
+    validate();
+    return;
+  }
+  this.value = this.value.replace(/^@+/, '').replace(/[^a-zA-Z0-9_]/g, '');
+  validate();
+});
+
+function validate() {
+  const raw = tgtInput.value.trim();
+  if (/^(https?:\/\/|t\.me\/|tg:\/\/|www\.|\+)/i.test(raw)) {
+    tgtErr.textContent = "Link yoki noto'g'ri format";
+    tgtErr.classList.add('show');
+    updateSum();
+    return false;
+  }
+  const ok = USERNAME_RE.test(raw);
+  if (!ok && raw.length > 0) {
+    tgtErr.textContent = "Username 4-32 ta belgi, lotin harf bilan boshlansin, faqat harf, raqam, _";
+    tgtErr.classList.add('show');
+  } else {
+    tgtErr.classList.remove('show');
+  }
+  updateSum();
+  return ok;
+}
+
+function updateSum() {
+  const raw   = tgtInput.value.trim();
+  const valid = USERNAME_RE.test(raw) && selPlan !== null;
+  const box   = document.getElementById('sumBox');
+  const btn   = document.getElementById('sendBtn');
+
+  if (valid) {
+    document.getElementById('sUser').textContent   = '@' + raw;
+    document.getElementById('sMo').textContent     = selPlan.m + ' oy';
+    document.getElementById('sPr').textContent     = selPlan.p + " so'm";
+    document.getElementById('sMethod').textContent = selPlan.method === 'gift'
+      ? '✅ Gift orqali'
+      : '⚠️ Akkauntga kirib';
+    box.classList.add('show');
+    btn.disabled = false;
+  } else {
+    box.classList.remove('show');
+    btn.disabled = true;
+  }
+}
+
+/* ════════════════════════════════════
+   ORDER SEND → BOT → CLOSE
+════════════════════════════════════ */
+const BOT = '8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
+const ADM = '7684555078';
+
+async function sendOrder() {
+  if (!selPlan) return;
+  const raw = tgtInput.value.trim();
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Yuborilmoqda…';
+  sfxBtn();
+
+  const sender  = uData.username ? '@' + uData.username : (uData.id ? 'ID: ' + uData.id : "Noma'lum");
+  const uid     = uData.id || '—';
+  const fname   = uData.first_name || '—';
+  const isGift  = selPlan.method === 'gift';
+
+  const methodLine = isGift
+    ? '🎁 <b>Usul:</b> Gift orqali yuboriladi (Xavfsiz ✅)'
+    : '🔑 <b>Usul:</b> Akkauntga kirib olib beriladi ⚠️';
+
+  const subLabel = selPlan.label ? `\n📌 <b>Variant:</b> ${selPlan.label}` : '';
+
+  const txt =
+    `⭐ <b>PREMIUM BUYURTMA</b>\n`+
+    `━━━━━━━━━━━━━━━━━━\n`+
+    `👤 <b>Yuboruvchi:</b> ${sender}\n`+
+    `🆔 <b>Telegram ID:</b> ${uid}\n`+
+    `📛 <b>Ism:</b> ${fname}\n`+
+    `━━━━━━━━━━━━━━━━━━\n`+
+    `🎯 <b>Kimga:</b> @${raw}\n`+
+    `📅 <b>Muddat:</b> ${selPlan.m} oy${subLabel}\n`+
+    `💰 <b>Narxi:</b> ${selPlan.p} so'm\n`+
+    `${methodLine}\n`+
+    `━━━━━━━━━━━━━━━━━━\n`+
+    `🔔 <b>Admin, iltimos buyurtmani tasdiqlang!</b>`;
+
+  try {
+    const r = await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: ADM, text: txt, parse_mode: 'HTML' })
+    });
+    const d = await r.json();
+    if (d.ok) {
+      sfxSuccess();
+      hapticNotify('success');
+      setTimeout(() => {
+        if (tg) tg.close();
+        else window.close();
+      }, 500);
+    } else {
+      throw new Error(d.description || 'API error');
+    }
+  } catch (e) {
+    btn.disabled = false;
+    btn.innerHTML = '⭐ PREMIUM OLISH';
+    showToast("❌ Xato yuz berdi, qayta urinib ko'ring");
+    hapticNotify('error');
+  }
+}
+
+/* ════════════════════════════════════
+   TOAST
+════════════════════════════════════ */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('up');
+  setTimeout(() => t.classList.remove('up'), 3000);
+}
+
+/* ════════════════════════════════════
+   BOOT
+════════════════════════════════════ */
+initUser();
+</script>
+</body>
+</html>
