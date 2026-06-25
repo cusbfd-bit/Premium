@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>PaynetChik – Premium</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Preconnect: fontlar tezroq yuklanadi -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- display=block: sahifa tayyor bo'lgunga font o'zgarmaydi -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow-x:hidden;}
@@ -13,7 +17,7 @@ body{
   background:linear-gradient(160deg,#030108 0%,#07031e 45%,#0b0820 100%);
   background-attachment:fixed;
   color:#eeeeff;
-  font-family:'DM Sans',sans-serif;
+  font-family:'DM Sans',system-ui,sans-serif;
   font-weight:600;
 }
 /* ══ MUSIC BTN ══ */
@@ -38,15 +42,16 @@ body{
 /* ══ NEON HEADER ══ */
 .neon-header{text-align:center;margin-bottom:16px;padding:6px 0;}
 .neon-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Playfair Display',Georgia,serif;
   font-size:2.1rem;font-weight:900;letter-spacing:2px;
   display:block;margin:4px 0 2px;line-height:1;
 }
 .nl{
   display:inline-block;color:#ffeaa7;
   text-shadow:0 0 5px rgba(255,200,100,.6),0 0 14px rgba(255,150,50,.4),0 0 28px rgba(255,100,0,.2);
-  animation:nFlick var(--nd,3.2s) var(--ndelay,0s) infinite;
+  animation:nFlick var(--nd,7s) var(--ndelay,0s) infinite;
 }
+/* ━━ Animatsiya sekinlashtirildi ━━ */
 @keyframes nFlick{
   0%,28%,36%,68%,74%,100%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.6),0 0 14px rgba(255,150,50,.4),0 0 28px rgba(255,100,0,.2);}
   30%,32%{color:rgba(255,200,100,.15);text-shadow:none;}
@@ -55,7 +60,7 @@ body{
   71%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.5),0 0 14px rgba(255,150,50,.3);}
 }
 .neon-sub{
-  font-family:'Playfair Display',serif;font-size:.78rem;letter-spacing:7px;
+  font-family:'Playfair Display',Georgia,serif;font-size:.78rem;letter-spacing:7px;
   color:rgba(245,200,66,.9);text-shadow:0 0 8px rgba(245,200,66,.5),0 0 18px rgba(245,200,66,.25);
   animation:subP 3s ease-in-out infinite;display:block;margin-top:5px;
 }
@@ -83,7 +88,7 @@ body{
   width:36px;height:36px;border-radius:50%;flex-shrink:0;
   background:linear-gradient(135deg,#4c1d95,#7c3aed);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#fff;
+  font-family:'Playfair Display',Georgia,serif;font-size:.9rem;font-weight:700;color:#fff;
   box-shadow:0 2px 10px rgba(76,29,149,.5);
 }
 .uname{font-weight:700;font-size:.88rem;color:#e8e8ff;}
@@ -99,7 +104,7 @@ body{
   width:100%;background:rgba(255,255,255,0.055);
   border:1px solid rgba(255,255,255,0.11);border-radius:13px;
   padding:11px 12px 11px 26px;color:#eeeeff;
-  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;outline:none;
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.9rem;font-weight:600;outline:none;
   transition:border .15s,box-shadow .15s,background .15s;
 }
 .inp-wrap input:focus{
@@ -123,7 +128,7 @@ body{
 .ozimga-btn{
   background:linear-gradient(135deg,#4c1d95,#7c3aed);
   border:none;border-radius:13px;padding:0 14px;color:#fff;
-  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.78rem;font-weight:700;
   cursor:pointer;white-space:nowrap;flex-shrink:0;
   box-shadow:0 2px 12px rgba(76,29,149,.45);transition:transform .1s;
 }
@@ -132,7 +137,7 @@ body{
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.1);
   border-radius:13px;padding:0 13px;
-  color:#8080a0;font-family:'DM Sans',sans-serif;
+  color:#8080a0;font-family:'DM Sans',system-ui,sans-serif;
   font-size:.85rem;font-weight:700;
   cursor:pointer;flex-shrink:0;
   transition:transform .1s,background .15s;
@@ -155,9 +160,10 @@ body{
   border-color:rgba(139,92,246,.9);background:rgba(76,29,149,0.26);
   box-shadow:0 0 0 3px rgba(139,92,246,.22),0 6px 22px rgba(76,29,149,.28),inset 0 1px 0 rgba(255,255,255,.1);
 }
-.p-mo{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;}
-.p-pr{font-size:.74rem;color:#7070a0;margin-top:3px;font-weight:600;}
-.plan.sel .p-pr{color:#a78bfa;}
+.p-mo{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;}
+/* ━━ Narxlar ko'rinadigan rangda ━━ */
+.p-pr{font-size:.78rem;color:#c0b8e8;margin-top:3px;font-weight:700;}
+.plan.sel .p-pr{color:#d4aaff;}
 .p-note{font-size:.62rem;color:#34d399;margin-top:4px;display:none;font-weight:700;line-height:1.35;}
 .plan.sel .p-note{display:block;}
 .hot-badge{
@@ -189,7 +195,7 @@ body{
 .btn{
   width:100%;background:linear-gradient(135deg,#4c1d95,#5b21b6,#7c3aed);
   border:1px solid rgba(139,92,246,.5);border-radius:15px;padding:16px;color:#fff;
-  font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;letter-spacing:1px;
+  font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-weight:700;letter-spacing:1px;
   cursor:pointer;
   box-shadow:0 8px 28px rgba(76,29,149,.55),0 2px 4px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16);
   position:relative;overflow:hidden;
@@ -236,7 +242,7 @@ body{
 .modal-header{text-align:center;margin-bottom:18px;}
 .modal-icon{font-size:1.9rem;margin-bottom:6px;display:block;}
 .modal-title{
-  font-family:'Playfair Display',serif;
+  font-family:'Playfair Display',Georgia,serif;
   font-size:1.1rem;font-weight:700;color:#eeeeff;letter-spacing:.8px;
 }
 .modal-sub{font-size:.76rem;color:#7070a0;margin-top:4px;font-weight:600;}
@@ -265,13 +271,13 @@ body{
 .mo-note{font-size:.67rem;color:#34d399;margin-top:3px;font-weight:600;}
 .mo-acc .mo-note{color:#fbbf24;}
 .mo-price{
-  font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;
+  font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:700;
   color:#f5c842;white-space:nowrap;flex-shrink:0;
   text-shadow:0 0 10px rgba(245,200,66,.35);
   text-align:right;
 }
 .mo-price small{
-  font-family:'DM Sans',sans-serif;font-size:.58rem;font-weight:600;
+  font-family:'DM Sans',system-ui,sans-serif;font-size:.58rem;font-weight:600;
   display:block;margin-top:1px;color:#a0a0c0;text-shadow:none;
 }
 .modal-close-btn{
@@ -279,7 +285,7 @@ body{
   margin:0 auto;
   background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
   border-radius:50px;padding:11px 28px;
-  color:#8080a0;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;
+  color:#8080a0;font-family:'DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:700;
   cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none;
 }
 .modal-close-btn:active{transform:scale(.95);background:rgba(255,255,255,.1);}
@@ -427,12 +433,13 @@ body{
 <script>
 /* ══════════════════════════
    NEON TITLE
+   ━━ Animatsiya sekinlashtirildi: durs 2.6-3.8s → 6-9s ━━
 ══════════════════════════ */
 (function(){
   var el=document.getElementById('neonTitle');
   var text='PaynetChik';
-  var delays=[0,.07,.14,.22,.30,.38,.46,.55,.64,.73];
-  var durs=[3.2,2.8,3.5,3.0,2.6,3.8,2.9,3.3,3.1,2.7];
+  var delays=[0,.12,.24,.38,.52,.68,.84,1.02,1.20,1.38]; /* kattaroq oraliq */
+  var durs=[7.0,6.2,8.0,6.8,5.8,8.5,6.5,7.5,7.2,6.0];   /* 2.2x sekinroq */
   text.split('').forEach(function(ch,i){
     var s=document.createElement('span');
     s.className='nl';s.textContent=ch;
@@ -443,40 +450,41 @@ body{
 })();
 
 /* ══════════════════════════
-   MUSIC — SINGLE ADVENTURE TRACK
-   Birinchi teginishdan 200ms keyin avtomatik boshlanadi
+   MUSIC SYSTEM
+   ━━ Har safar kirganida trek rotatsiyasi ━━
+   ━━ startMusic() to'g'ridan-to'g'ri gesture ichida chaqiriladi ━━
+   ━━ (setTimeout yo'q — brauzer ruxsatini saqlaymiz) ━━
 ══════════════════════════ */
+var MUSIC_URLS = [
+  'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=ambient-space-10645.mp3',
+  'https://cdn.pixabay.com/download/audio/2022/03/15/audio_1ef6e862c4.mp3?filename=calm-space-10642.mp3',
+  'https://cdn.pixabay.com/audio/2022/10/31/audio_3fbd2bdc42.mp3',
+  'https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3'
+];
+
+/* Har safar kirganida keyingi trek (sessionStorage orqali) */
+var _li = parseInt(sessionStorage.getItem('_mti') || '-1');
+var musicUrlIdx = (_li + 1) % MUSIC_URLS.length;
+sessionStorage.setItem('_mti', String(musicUrlIdx));
+
 var musicOn = false;
 var musicReady = false;
 var fadeTimer = null;
 
-/* Ishonchli adventure/cinematic CDN URL-lari (fallback tartibida) */
-var MUSIC_URLS = [
-  'https://cdn.pixabay.com/audio/2022/10/31/audio_3fbd2bdc42.mp3',
-  'https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3',
-  'https://cdn.pixabay.com/audio/2022/01/18/audio_d0c6ff1bab.mp3',
-  'https://cdn.pixabay.com/audio/2021/04/07/audio_86ea48e4b4.mp3'
-];
-var musicUrlIdx = 0;
-
-var bgMusic = new Audio();
+var bgMusic = new Audio(MUSIC_URLS[musicUrlIdx]); /* src darhol o'rnatildi */
 bgMusic.loop = true;
 bgMusic.volume = 0;
-bgMusic.preload = 'none';
+bgMusic.preload = 'auto'; /* oldindan yuklanadi */
 
 /* URL yuklanmasa keyingisiga o'tish */
 bgMusic.addEventListener('error', function() {
-  musicUrlIdx++;
-  if (musicUrlIdx < MUSIC_URLS.length) {
+  musicUrlIdx = (musicUrlIdx + 1) % MUSIC_URLS.length;
+  if (musicUrlIdx !== parseInt(sessionStorage.getItem('_mti'))) {
     bgMusic.src = MUSIC_URLS[musicUrlIdx];
     bgMusic.load();
-    if (musicOn) {
-      bgMusic.play().then(function(){ fadeInMusic(); }).catch(function(){});
-    }
+    if (musicOn) bgMusic.play().then(function(){ fadeInMusic(); }).catch(function(){});
   } else {
-    /* Barcha URL ishlamasa — jim qoladi, UI buzilmaydi */
-    musicOn = false;
-    updateMusicUI();
+    musicOn = false; updateMusicUI();
   }
 }, true);
 
@@ -488,16 +496,14 @@ function updateMusicUI() {
 
 function fadeInMusic() {
   if (fadeTimer) clearInterval(fadeTimer);
-  bgMusic.volume = 0;
   fadeTimer = setInterval(function() {
     if (bgMusic.volume < 0.26) {
       bgMusic.volume = Math.min(bgMusic.volume + 0.018, 0.28);
     } else {
       bgMusic.volume = 0.28;
-      clearInterval(fadeTimer);
-      fadeTimer = null;
+      clearInterval(fadeTimer); fadeTimer = null;
     }
-  }, 200);
+  }, 80);
 }
 
 function fadeOutMusic(cb) {
@@ -506,36 +512,26 @@ function fadeOutMusic(cb) {
     if (bgMusic.volume > 0.03) {
       bgMusic.volume = Math.max(bgMusic.volume - 0.04, 0);
     } else {
-      bgMusic.volume = 0;
-      bgMusic.pause();
-      clearInterval(fadeTimer);
-      fadeTimer = null;
+      bgMusic.volume = 0; bgMusic.pause();
+      clearInterval(fadeTimer); fadeTimer = null;
       if (cb) cb();
     }
   }, 60);
 }
 
 function startMusic() {
-  if (!musicReady) {
-    bgMusic.src = MUSIC_URLS[musicUrlIdx];
-    bgMusic.load();
-    musicReady = true;
-  }
+  musicReady = true;
+  bgMusic.volume = 0;
   var p = bgMusic.play();
   if (p !== undefined) {
     p.then(function() {
-      musicOn = true;
-      fadeInMusic();
-      updateMusicUI();
+      musicOn = true; fadeInMusic(); updateMusicUI();
     }).catch(function() {
-      /* Autoplay rad etildi — foydalanuvchi tugmadan yoqadi */
-      musicOn = false;
-      updateMusicUI();
+      /* Autoplay blok — tugma orqali yoqiladi */
+      musicOn = false; updateMusicUI();
     });
   } else {
-    musicOn = true;
-    fadeInMusic();
-    updateMusicUI();
+    musicOn = true; fadeInMusic(); updateMusicUI();
   }
 }
 
@@ -543,18 +539,17 @@ function toggleMusic() {
   sfxSelect();
   if (musicOn) {
     fadeOutMusic(function() {});
-    musicOn = false;
-    updateMusicUI();
+    musicOn = false; updateMusicUI();
   } else {
     startMusic();
   }
 }
 
-/* Birinchi teginishdan 200ms keyin musiqa avtomatik yoqiladi */
+/* ━━ ASOSIY FIX: startMusic() to'g'ridan-to'g'ri (setTimeout YO'Q!) ━━
+   setTimeout ichida play() chaqirilsa brauzer gesture kontekstini yo'qotadi */
 var _firstDone = false;
 function onFirstGesture(e) {
   if (_firstDone) return;
-  /* Musiqa tugmasiga bosilsa, toggleMusic o'zi ishlaydi */
   if (e.target && e.target.id === 'musicBtn') {
     _firstDone = true;
     document.removeEventListener('touchstart', onFirstGesture, true);
@@ -565,7 +560,7 @@ function onFirstGesture(e) {
   document.removeEventListener('touchstart', onFirstGesture, true);
   document.removeEventListener('click', onFirstGesture, true);
   if (!musicOn) {
-    setTimeout(function() { startMusic(); }, 200);
+    startMusic(); /* ← To'g'ridan-to'g'ri, setTimeout yo'q */
   }
 }
 document.addEventListener('touchstart', onFirstGesture, {passive: true, capture: true});
@@ -628,11 +623,12 @@ function haptic(t){ if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurre
 function hapticNotify(t){ if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred(t || 'success'); }
 
 /* ══════════════════════════
-   USERNAME CHECK (Telegram Bot API orqali)
+   USERNAME CHECK
 ══════════════════════════ */
-var usernameCheckStatus = 'idle'; // 'idle' | 'checking' | 'found' | 'notfound'
-var usernameCache = {};           // { username: 'found'|'notfound' }
+var usernameCheckStatus = 'idle';
+var usernameCache = {};
 var checkDebounceTimer = null;
+var BOT = '8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
 
 function setUsrStatus(cls, msg) {
   var el = document.getElementById('usrStatus');
@@ -642,15 +638,12 @@ function setUsrStatus(cls, msg) {
 
 function scheduleUsernameCheck(username) {
   clearTimeout(checkDebounceTimer);
-
   if (!USERNAME_RE.test(username)) {
     usernameCheckStatus = 'idle';
     setUsrStatus('', '');
     updateSum();
     return;
   }
-
-  /* Kesh tekshiruvi — API ga qayta so'rov yubormaslik uchun */
   if (usernameCache[username]) {
     usernameCheckStatus = usernameCache[username];
     if (usernameCheckStatus === 'found') {
@@ -661,21 +654,17 @@ function scheduleUsernameCheck(username) {
     updateSum();
     return;
   }
-
   usernameCheckStatus = 'checking';
   setUsrStatus('checking', '⌛ Tekshirilmoqda...');
   updateSum();
-
   checkDebounceTimer = setTimeout(function() {
     doUsernameCheck(username);
   }, 700);
 }
 
 function doUsernameCheck(username) {
-  /* Agar foydalanuvchi boshqa narsa yozib bo'lsa, bekor */
   var current = document.getElementById('tgt').value.trim();
   if (username !== current) return;
-
   fetch('https://api.telegram.org/bot' + BOT + '/getChat', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -683,9 +672,7 @@ function doUsernameCheck(username) {
   })
   .then(function(res){ return res.json(); })
   .then(function(data) {
-    /* Stale tekshiruv — foydalanuvchi boshqa narsa yozgan bo'lsa */
     if (username !== document.getElementById('tgt').value.trim()) return;
-
     if (data.ok) {
       usernameCache[username] = 'found';
       usernameCheckStatus = 'found';
@@ -694,12 +681,11 @@ function doUsernameCheck(username) {
       usernameCache[username] = 'notfound';
       usernameCheckStatus = 'notfound';
       setUsrStatus('notfound', '❌ Bu username Telegramda mavjud emas');
-      haptic('heavy'); /* Vibratsiya */
+      haptic('heavy');
     }
     updateSum();
   })
   .catch(function() {
-    /* Tarmoq xatosi — jimgina o'tkazib yuborish, UI buzilmasin */
     if (username !== document.getElementById('tgt').value.trim()) return;
     usernameCheckStatus = 'idle';
     setUsrStatus('', '');
@@ -708,7 +694,7 @@ function doUsernameCheck(username) {
 }
 
 /* ══════════════════════════
-   USERNAME CLEAR BUTTON
+   CLEAR BUTTON
 ══════════════════════════ */
 function clearUsername() {
   var inp = document.getElementById('tgt');
@@ -757,23 +743,18 @@ function open12Modal(){
   document.getElementById('modal12').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function close12Modal(){
   sfxClose();
   document.getElementById('modal12').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 function overlayTap(e){
   if (e.target === document.getElementById('modal12')) close12Modal();
 }
-
 function select12(method, price, label, icon){
   sfxPick();
   if (method === 'acc') haptic('heavy'); else haptic('medium');
-
   selPlan = {m: '12', p: price, method: method, label: label, icon: icon};
-
   document.querySelectorAll('.plan').forEach(function(p){ p.classList.remove('sel'); });
   var btn12 = document.getElementById('plan12Btn');
   btn12.classList.add('sel');
@@ -782,7 +763,6 @@ function select12(method, price, label, icon){
   var noteEl = document.getElementById('plan12Note');
   noteEl.textContent = (method === 'gift' ? '✅ Gift orqali' : '⚠️ Akkauntga kirib');
   noteEl.style.display = 'block';
-
   setTimeout(function(){ close12Modal(); updateSum(); }, 240);
 }
 
@@ -802,10 +782,7 @@ tgtInput.addEventListener('input', function(){
     return;
   }
   this.value = this.value.replace(/^@+/, '').replace(/[^a-zA-Z0-9_]/g, '');
-
-  /* X tugmani ko'rsatish / yashirish */
   document.getElementById('xBtn').classList.toggle('show', this.value.length > 0);
-
   scheduleUsernameCheck(this.value.trim());
   validate();
 });
@@ -830,7 +807,6 @@ function validate(){
 function updateSum(){
   var raw   = tgtInput.value.trim();
   var fmtOk = USERNAME_RE.test(raw);
-  /* Username Telegramda mavjud bo'lsagina buyurtma tugmasi yonadi */
   var valid = fmtOk && selPlan !== null && usernameCheckStatus === 'found';
   var box   = document.getElementById('sumBox');
   var btn   = document.getElementById('sendBtn');
@@ -847,10 +823,8 @@ function updateSum(){
 }
 
 /* ══════════════════════════
-   ORDER → BOT ONLY
+   ORDER → BOT
 ══════════════════════════ */
-var BOT = '8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
-
 function sendOrder(){
   if (!selPlan) return;
   var raw = tgtInput.value.trim();
@@ -891,7 +865,6 @@ function sendOrder(){
 
     sfxSuccess(); hapticNotify('success');
     setTimeout(function(){ if (tg) tg.close(); else window.close(); }, 500);
-
   } catch(e) {
     sfxSuccess(); hapticNotify('success');
     setTimeout(function(){ if (tg) tg.close(); else window.close(); }, 500);
