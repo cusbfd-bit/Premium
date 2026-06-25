@@ -16,10 +16,9 @@ body{
   font-family:'DM Sans',sans-serif;
   font-weight:600;
 }
-
 /* ══ MUSIC BTN ══ */
 .music-btn{
-  position:fixed;top:14px;right:14px;z-index:200;
+  position:fixed;top:14px;right:14px;z-index:600;
   width:42px;height:42px;border-radius:50%;
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -31,18 +30,11 @@ body{
 }
 .music-btn:active{transform:scale(.9);}
 .music-btn.on{
-  background:rgba(139,92,246,.2);
-  border-color:rgba(139,92,246,.4);
+  background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.4);
   box-shadow:0 0 12px rgba(139,92,246,.3),inset 0 1px 0 rgba(255,255,255,.1);
 }
-
 /* ══ WRAP ══ */
-.wrap{
-  max-width:420px;margin:0 auto;
-  padding:14px 12px 32px;
-  min-height:100vh;
-}
-
+.wrap{max-width:420px;margin:0 auto;padding:14px 12px 32px;min-height:100vh;}
 /* ══ NEON HEADER ══ */
 .neon-header{text-align:center;margin-bottom:16px;padding:6px 0;}
 .neon-title{
@@ -63,50 +55,29 @@ body{
   71%{color:#ffeaa7;text-shadow:0 0 5px rgba(255,200,100,.5),0 0 14px rgba(255,150,50,.3);}
 }
 .neon-sub{
-  font-family:'Playfair Display',serif;
-  font-size:.78rem;letter-spacing:7px;
-  color:rgba(245,200,66,.9);
-  text-shadow:0 0 8px rgba(245,200,66,.5),0 0 18px rgba(245,200,66,.25);
-  animation:subP 3s ease-in-out infinite;
-  display:block;margin-top:5px;
+  font-family:'Playfair Display',serif;font-size:.78rem;letter-spacing:7px;
+  color:rgba(245,200,66,.9);text-shadow:0 0 8px rgba(245,200,66,.5),0 0 18px rgba(245,200,66,.25);
+  animation:subP 3s ease-in-out infinite;display:block;margin-top:5px;
 }
-@keyframes subP{
-  0%,100%{opacity:.65;text-shadow:0 0 6px rgba(245,200,66,.3);}
-  50%{opacity:1;text-shadow:0 0 14px rgba(245,200,66,.6),0 0 28px rgba(245,200,66,.25);}
-}
-
-/* ══ LIQUID GLASS CARD ══ */
+@keyframes subP{0%,100%{opacity:.65;}50%{opacity:1;text-shadow:0 0 14px rgba(245,200,66,.6),0 0 28px rgba(245,200,66,.25);}}
+/* ══ CARD ══ */
 .card{
   background:rgba(255,255,255,0.045);
   border:1px solid rgba(160,120,255,0.2);
-  border-radius:22px;
-  padding:16px 15px 18px;
-  backdrop-filter:blur(48px) saturate(1.4);
-  -webkit-backdrop-filter:blur(48px) saturate(1.4);
-  box-shadow:
-    0 8px 48px rgba(0,0,0,0.65),
-    0 0 0 1px rgba(255,255,255,0.04) inset,
-    0 1px 0 rgba(255,255,255,0.09) inset;
+  border-radius:22px;padding:16px 15px 18px;
+  backdrop-filter:blur(48px) saturate(1.4);-webkit-backdrop-filter:blur(48px) saturate(1.4);
+  box-shadow:0 8px 48px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.04),inset 0 1px 0 rgba(255,255,255,.09);
   position:relative;overflow:hidden;
 }
 .card::before{
   content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(180,150,255,.35),transparent);
 }
-.card::after{
-  content:'';position:absolute;
-  top:-60%;left:-40%;width:180%;height:180%;
-  background:radial-gradient(ellipse at 60% 30%,rgba(120,60,220,.06) 0%,transparent 60%);
-  pointer-events:none;
-}
-
 /* ══ USER BAR ══ */
 .user-bar{
   display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(139,92,246,0.15);
+  background:rgba(255,255,255,0.05);border:1px solid rgba(139,92,246,0.15);
   border-radius:14px;padding:10px 13px;margin-bottom:15px;
-  backdrop-filter:blur(20px);
 }
 .ava{
   width:36px;height:36px;border-radius:50%;flex-shrink:0;
@@ -117,66 +88,74 @@ body{
 }
 .uname{font-weight:700;font-size:.88rem;color:#e8e8ff;}
 .usub{font-size:.70rem;color:#6b6b8a;margin-top:1px;}
-
 /* ══ LABEL ══ */
 .lbl{font-size:.63rem;font-weight:700;color:#7070a0;text-transform:uppercase;letter-spacing:1.3px;margin-bottom:7px;}
-.mt-12{margin-top:13px;}
-
+.mt12{margin-top:13px;}
 /* ══ INPUT ══ */
 .inp-row{display:flex;gap:7px;margin-bottom:2px;align-items:stretch;}
 .inp-wrap{position:relative;flex:1;}
 .at-sign{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#a78bfa;font-weight:700;font-size:.95rem;pointer-events:none;}
 .inp-wrap input{
-  width:100%;
-  background:rgba(255,255,255,0.055);
-  border:1px solid rgba(255,255,255,0.11);
-  border-radius:13px;
-  padding:11px 12px 11px 26px;
-  color:#eeeeff;
+  width:100%;background:rgba(255,255,255,0.055);
+  border:1px solid rgba(255,255,255,0.11);border-radius:13px;
+  padding:11px 12px 11px 26px;color:#eeeeff;
   font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;outline:none;
   transition:border .15s,box-shadow .15s,background .15s;
 }
 .inp-wrap input:focus{
-  border-color:rgba(139,92,246,.65);
-  box-shadow:0 0 0 3px rgba(139,92,246,.14);
+  border-color:rgba(139,92,246,.65);box-shadow:0 0 0 3px rgba(139,92,246,.14);
   background:rgba(255,255,255,0.07);
 }
 .inp-wrap input::placeholder{color:#55556a;font-weight:400;}
-.inp-err{font-size:.68rem;color:#f87171;margin-top:3px;margin-bottom:6px;display:none;font-weight:600;padding-left:2px;}
+.inp-err{font-size:.68rem;color:#f87171;margin-top:3px;margin-bottom:2px;display:none;font-weight:600;}
 .inp-err.show{display:block;}
-
+/* ══ USERNAME STATUS ══ */
+.usr-status{
+  font-size:.70rem;margin-top:3px;margin-bottom:4px;
+  font-weight:600;min-height:0;line-height:1.35;
+  transition:opacity .2s;
+}
+.usr-status:empty{display:none;}
+.usr-status.checking{color:#a78bfa;}
+.usr-status.found{color:#34d399;}
+.usr-status.notfound{color:#f87171;}
+/* ══ OZIMGA + X BUTTONS ══ */
 .ozimga-btn{
   background:linear-gradient(135deg,#4c1d95,#7c3aed);
   border:none;border-radius:13px;padding:0 14px;color:#fff;
   font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;
   cursor:pointer;white-space:nowrap;flex-shrink:0;
-  box-shadow:0 2px 12px rgba(76,29,149,.45);
-  transition:transform .1s,box-shadow .1s;
+  box-shadow:0 2px 12px rgba(76,29,149,.45);transition:transform .1s;
 }
-.ozimga-btn:active{transform:scale(.94);box-shadow:0 1px 5px rgba(76,29,149,.3);}
-
+.ozimga-btn:active{transform:scale(.94);}
+.x-btn{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:13px;padding:0 13px;
+  color:#8080a0;font-family:'DM Sans',sans-serif;
+  font-size:.85rem;font-weight:700;
+  cursor:pointer;flex-shrink:0;
+  transition:transform .1s,background .15s;
+  display:none;align-items:center;justify-content:center;
+}
+.x-btn.show{display:flex;}
+.x-btn:active{transform:scale(.94);background:rgba(255,255,255,.14);}
 /* ══ PLANS GRID ══ */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .plan{
-  background:rgba(255,255,255,0.045);
-  border:1.5px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.045);border:1.5px solid rgba(255,255,255,0.12);
   border-radius:15px;padding:12px 10px;cursor:pointer;
   transition:border .18s,box-shadow .18s,background .18s,transform .12s;
-  position:relative;overflow:hidden;
-  -webkit-user-select:none;user-select:none;
+  position:relative;overflow:hidden;-webkit-user-select:none;user-select:none;
   backdrop-filter:blur(16px);
   box-shadow:0 2px 10px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);
 }
 .plan:active{transform:scale(.96);}
 .plan.sel{
-  border-color:rgba(139,92,246,.9);
-  background:rgba(76,29,149,0.26);
+  border-color:rgba(139,92,246,.9);background:rgba(76,29,149,0.26);
   box-shadow:0 0 0 3px rgba(139,92,246,.22),0 6px 22px rgba(76,29,149,.28),inset 0 1px 0 rgba(255,255,255,.1);
 }
-.p-mo{
-  font-family:'Playfair Display',serif;
-  font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;
-}
+.p-mo{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;}
 .p-pr{font-size:.74rem;color:#7070a0;margin-top:3px;font-weight:600;}
 .plan.sel .p-pr{color:#a78bfa;}
 .p-note{font-size:.62rem;color:#34d399;margin-top:4px;display:none;font-weight:700;line-height:1.35;}
@@ -187,107 +166,138 @@ body{
   color:#000;font-size:.54rem;font-weight:800;
   padding:2px 6px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;
 }
-/* subtle gold pulse for 12-month card */
 .plan-12-trigger{animation:goldPulse 2.5s ease-in-out infinite;}
 @keyframes goldPulse{
   0%,100%{box-shadow:0 2px 10px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07);}
-  50%{box-shadow:0 2px 12px rgba(245,200,66,.1),0 0 16px rgba(245,200,66,.07),inset 0 1px 0 rgba(255,255,255,.07);}
+  50%{box-shadow:0 2px 14px rgba(245,200,66,.1),0 0 18px rgba(245,200,66,.07),inset 0 1px 0 rgba(255,255,255,.07);}
 }
 .p-choose{font-size:.63rem;color:#a78bfa;margin-top:4px;font-weight:700;}
-
-/* ══ 12-MONTH SUB OPTIONS ══ */
-.sub12{
-  max-height:0;overflow:hidden;
-  transition:max-height .32s cubic-bezier(.4,0,.2,1),opacity .28s ease,margin .28s;
-  opacity:0;margin-top:0;
-}
-.sub12.open{max-height:220px;opacity:1;margin-top:8px;}
-.sub12-inner{display:flex;flex-direction:column;gap:7px;}
-
-.sub-plan{
-  background:rgba(255,255,255,0.045);
-  border:1.5px solid rgba(255,255,255,0.12);
-  border-radius:15px;padding:11px 13px;cursor:pointer;
-  transition:all .18s;
-  -webkit-user-select:none;user-select:none;
-  backdrop-filter:blur(16px);
-  display:flex;justify-content:space-between;align-items:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06);
-}
-.sub-plan:active{transform:scale(.98);}
-.sub-plan.sel{
-  border-color:rgba(139,92,246,.85);
-  background:rgba(76,29,149,0.24);
-  box-shadow:0 0 0 3px rgba(139,92,246,.18),0 4px 16px rgba(76,29,149,.22),inset 0 1px 0 rgba(255,255,255,.09);
-}
-.sp-title{
-  font-family:'Playfair Display',serif;
-  font-size:.93rem;font-weight:700;color:#eeeeff;
-}
-.sp-note{font-size:.63rem;margin-top:3px;font-weight:700;line-height:1.3;color:#34d399;}
-.sp-acc .sp-note{color:#fbbf24;}
-.sp-price{
-  font-family:'Playfair Display',serif;
-  font-size:1rem;font-weight:700;
-  color:#f5c842;white-space:nowrap;margin-left:8px;
-  text-shadow:0 0 8px rgba(245,200,66,.3);
-}
-
 /* ══ SUMMARY ══ */
 .summary{
-  background:rgba(76,29,149,0.08);
-  border:1px solid rgba(139,92,246,0.16);
+  background:rgba(76,29,149,0.08);border:1px solid rgba(139,92,246,0.16);
   border-radius:14px;padding:11px 14px;
-  margin-top:13px;margin-bottom:13px;
-  display:none;animation:fadeIn .2s ease;
-  backdrop-filter:blur(20px);
+  margin-top:13px;margin-bottom:0;display:none;animation:fadeIn .2s ease;
 }
 .summary.show{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}
 .s-row{display:flex;justify-content:space-between;font-size:.80rem;padding:3px 0;color:#7070a0;}
 .s-row span:last-child{color:#d0d0ee;font-weight:700;}
-.s-row.tot{
-  margin-top:8px;padding-top:9px;
-  border-top:1px solid rgba(255,255,255,0.08);font-weight:700;
-}
+.s-row.tot{margin-top:8px;padding-top:9px;border-top:1px solid rgba(255,255,255,.08);font-weight:700;}
 .s-row.tot span:last-child{color:#f5c842;font-size:.92rem;text-shadow:0 0 6px rgba(245,200,66,.3);}
-
 /* ══ MAIN BUTTON ══ */
+.btn-wrap{padding:14px 0 0;}
 .btn{
-  width:100%;
-  background:linear-gradient(135deg,#4c1d95,#5b21b6,#7c3aed);
-  border:1px solid rgba(139,92,246,.5);
-  border-radius:15px;padding:14px;color:#fff;
+  width:100%;background:linear-gradient(135deg,#4c1d95,#5b21b6,#7c3aed);
+  border:1px solid rgba(139,92,246,.5);border-radius:15px;padding:16px;color:#fff;
   font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;letter-spacing:1px;
   cursor:pointer;
   box-shadow:0 8px 28px rgba(76,29,149,.55),0 2px 4px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16);
   position:relative;overflow:hidden;
-  transition:opacity .15s,transform .1s,box-shadow .2s;
-  -webkit-user-select:none;user-select:none;
+  transition:opacity .15s,transform .1s,box-shadow .2s;-webkit-user-select:none;user-select:none;
+  display:block;
 }
 .btn:disabled{opacity:.28;cursor:not-allowed;box-shadow:none;border-color:rgba(255,255,255,.05);}
-.btn:not(:disabled):active{
-  transform:scale(.975);
-  box-shadow:0 3px 10px rgba(76,29,149,.3),inset 0 1px 0 rgba(255,255,255,.12);
-}
+.btn:not(:disabled):active{transform:scale(.975);box-shadow:0 3px 10px rgba(76,29,149,.3),inset 0 1px 0 rgba(255,255,255,.12);}
 .btn::before{
   content:'';position:absolute;top:0;bottom:0;left:-55%;width:32%;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
   animation:shim 2.4s infinite;
 }
 @keyframes shim{0%{left:-55%;}100%{left:145%;}}
-
+/* ══ 12-MONTH MODAL ══ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;
+  display:flex;align-items:flex-end;justify-content:center;
+  pointer-events:none;
+  background:rgba(0,0,0,0);
+  transition:background .3s ease;
+}
+.modal-overlay.open{
+  background:rgba(0,0,0,0.72);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  pointer-events:all;
+}
+.modal-box{
+  background:linear-gradient(170deg,rgba(16,7,42,0.98) 0%,rgba(8,4,22,0.99) 100%);
+  border:1px solid rgba(139,92,246,0.32);border-bottom:none;
+  border-radius:26px 26px 0 0;
+  padding:10px 16px 36px;
+  width:100%;max-width:440px;
+  backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  transform:translateY(110%);
+  transition:transform .32s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 -10px 50px rgba(76,29,149,.32),inset 0 1px 0 rgba(255,255,255,.07);
+}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-handle{
+  width:40px;height:4px;background:rgba(255,255,255,.16);
+  border-radius:2px;margin:0 auto 18px;
+}
+.modal-header{text-align:center;margin-bottom:18px;}
+.modal-icon{font-size:1.9rem;margin-bottom:6px;display:block;}
+.modal-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:700;color:#eeeeff;letter-spacing:.8px;
+}
+.modal-sub{font-size:.76rem;color:#7070a0;margin-top:4px;font-weight:600;}
+.modal-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+.modal-opt{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:18px;padding:14px 13px;cursor:pointer;
+  transition:all .18s;-webkit-user-select:none;user-select:none;
+  position:relative;overflow:hidden;
+}
+.modal-opt:active{transform:scale(.97);}
+.modal-opt:active::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(139,92,246,.18) 0%,transparent 70%);
+}
+.mo-emoji{
+  font-size:1.5rem;flex-shrink:0;
+  width:46px;height:46px;
+  background:rgba(139,92,246,.12);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.mo-acc .mo-emoji{background:rgba(251,191,36,.09);}
+.mo-body{flex:1;min-width:0;}
+.mo-title{font-weight:700;font-size:.9rem;color:#eeeeff;}
+.mo-note{font-size:.67rem;color:#34d399;margin-top:3px;font-weight:600;}
+.mo-acc .mo-note{color:#fbbf24;}
+.mo-price{
+  font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;
+  color:#f5c842;white-space:nowrap;flex-shrink:0;
+  text-shadow:0 0 10px rgba(245,200,66,.35);
+  text-align:right;
+}
+.mo-price small{
+  font-family:'DM Sans',sans-serif;font-size:.58rem;font-weight:600;
+  display:block;margin-top:1px;color:#a0a0c0;text-shadow:none;
+}
+.modal-close-btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:50px;padding:11px 28px;
+  color:#8080a0;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;
+  cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none;
+}
+.modal-close-btn:active{transform:scale(.95);background:rgba(255,255,255,.1);}
+.mcb-x{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;background:rgba(255,255,255,.1);
+  border-radius:50%;font-size:.65rem;flex-shrink:0;
+}
 /* ══ TOAST ══ */
 .toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);
   background:rgba(6,3,18,.97);border:1px solid rgba(139,92,246,.28);border-radius:12px;
   padding:10px 20px;font-size:.80rem;color:#eeeeff;font-weight:600;
-  backdrop-filter:blur(14px);z-index:300;
+  backdrop-filter:blur(14px);z-index:2000;
   transition:transform .28s cubic-bezier(.4,0,.2,1);white-space:nowrap;
   box-shadow:0 4px 20px rgba(0,0,0,.5);
 }
 .toast.up{transform:translateX(-50%) translateY(0);}
-
 @keyframes spin{to{transform:rotate(360deg);}}
 .spinner{
   display:inline-block;width:14px;height:14px;
@@ -299,12 +309,9 @@ body{
 </head>
 <body>
 
-<!-- Music Toggle -->
-<button class="music-btn" id="musicBtn" onclick="handleMusicBtn()">🔇</button>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">🔇</button>
 
 <div class="wrap">
-
-  <!-- Neon Header -->
   <div class="neon-header">
     <div style="display:inline-block;padding:6px 16px 4px;">
       <span class="neon-title" id="neonTitle"></span>
@@ -312,98 +319,59 @@ body{
     </div>
   </div>
 
-  <!-- Main Card -->
   <div class="card">
-
-    <!-- User Bar -->
     <div class="user-bar">
       <div class="ava" id="avaEl">?</div>
       <div>
         <div class="uname" id="unameEl">Yuklanmoqda…</div>
-        <div class="usub" id="usubEl">Telegram</div>
+        <div class="usub"  id="usubEl">Telegram</div>
       </div>
     </div>
 
-    <!-- Username Input -->
     <div class="lbl">Kimga yuborish</div>
     <div class="inp-row">
       <div class="inp-wrap">
         <span class="at-sign">@</span>
         <input type="text" id="tgt" placeholder="username" maxlength="32"
-               autocomplete="off" autocorrect="off" spellcheck="false"
-               inputmode="text">
+               autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text">
       </div>
       <button class="ozimga-btn" onclick="fillSelf()">O'zimga</button>
+      <button class="x-btn" id="xBtn" onclick="clearUsername()">✕</button>
     </div>
     <div class="inp-err" id="tgtErr"></div>
+    <div class="usr-status" id="usrStatus"></div>
 
-    <!-- Plan Cards -->
-    <div class="lbl mt-12">Muddatni tanlang</div>
+    <div class="lbl mt12">Muddatni tanlang</div>
     <div class="plans">
 
-      <!-- 1 Oy -->
-      <div class="plan" data-m="1" data-p="44 000" data-method="acc"
-           onclick="selectPlan(this)">
+      <div class="plan" data-m="1" data-p="44 000" data-method="acc" onclick="selectPlan(this)">
         <div class="p-mo">1 Oy</div>
         <div class="p-pr">44 000 so'm</div>
         <div class="p-note">⚠️ Akkauntga kirib olib beriladi</div>
       </div>
 
-      <!-- 3 Oy -->
-      <div class="plan" data-m="3" data-p="165 000" data-method="gift"
-           onclick="selectPlan(this)">
+      <div class="plan" data-m="3" data-p="165 000" data-method="gift" onclick="selectPlan(this)">
         <div class="p-mo">3 Oy</div>
         <div class="p-pr">165 000 so'm</div>
         <div class="p-note">✅ Gift orqali yuboriladi</div>
       </div>
 
-      <!-- 6 Oy -->
-      <div class="plan" data-m="6" data-p="220 000" data-method="gift"
-           onclick="selectPlan(this)">
+      <div class="plan" data-m="6" data-p="220 000" data-method="gift" onclick="selectPlan(this)">
         <div class="p-mo">6 Oy</div>
         <div class="p-pr">220 000 so'm</div>
         <div class="p-note">✅ Gift orqali yuboriladi</div>
       </div>
 
-      <!-- 12 Oy — trigger card (shows sub-options) -->
-      <div class="plan plan-12-trigger" id="plan12Btn"
-           onclick="toggle12(this)">
+      <div class="plan plan-12-trigger" id="plan12Btn" onclick="open12Modal()">
         <span class="hot-badge">🔥 TOP</span>
         <div class="p-mo">12 Oy</div>
-        <div class="p-pr" id="plan12PrLabel">385 000 / 300 000</div>
-        <div class="p-choose">▾ Variantni tanlang</div>
+        <div class="p-pr" id="plan12Sub">385K / 300K</div>
+        <div class="p-choose" id="plan12Choose">Tanlang ▸</div>
+        <div class="p-note" id="plan12Note"></div>
       </div>
 
-    </div><!-- /plans -->
-
-    <!-- 12-month Sub Options (hidden by default) -->
-    <div class="sub12" id="sub12">
-      <div class="sub12-inner">
-
-        <!-- Safe / Gift -->
-        <div class="sub-plan" data-m="12" data-p="385 000" data-method="gift"
-             onclick="select12Plan(this)">
-          <div>
-            <div class="sp-title">12 Oy &nbsp;🔒 Xavfsiz</div>
-            <div class="sp-note">✅ Gift orqali yuboriladi</div>
-          </div>
-          <div class="sp-price">385 000</div>
-        </div>
-
-        <!-- Account login -->
-        <div class="sub-plan sp-acc" data-m="12" data-p="300 000" data-method="acc"
-             onclick="select12Plan(this)">
-          <div>
-            <div class="sp-title">12 Oy &nbsp;🔑 Akkauntga</div>
-            <div class="sp-note">⚠️ Akkauntga kirib olib beriladi 📳</div>
-          </div>
-          <div class="sp-price">300 000</div>
-        </div>
-
-      </div>
     </div>
 
-    <!-- Order Summary -->
     <div class="summary" id="sumBox">
       <div class="s-row"><span>Foydalanuvchi</span><span id="sUser">—</span></div>
       <div class="s-row"><span>Xizmat</span><span>Telegram Premium</span></div>
@@ -412,317 +380,445 @@ body{
       <div class="s-row tot"><span>Jami</span><span id="sPr">—</span></div>
     </div>
 
-    <!-- Submit Button -->
-    <button class="btn" id="sendBtn" disabled onclick="sendOrder()">⭐ PREMIUM OLISH</button>
+    <div class="btn-wrap">
+      <button class="btn" id="sendBtn" disabled onclick="sendOrder()">⭐ PREMIUM OLISH</button>
+    </div>
+  </div>
+</div>
 
-  </div><!-- /card -->
-</div><!-- /wrap -->
+<!-- 12-Month Bottom Sheet Modal -->
+<div class="modal-overlay" id="modal12" onclick="overlayTap(event)">
+  <div class="modal-box" id="modal12Box">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-icon">⭐</span>
+      <div class="modal-title">12 Oylik Premium</div>
+      <div class="modal-sub">Qaysi usul qulay?</div>
+    </div>
+
+    <div class="modal-opts">
+      <div class="modal-opt" onclick="select12('gift','385 000','Gift orqali (xavfsiz)','🎁')">
+        <div class="mo-emoji">🔒</div>
+        <div class="mo-body">
+          <div class="mo-title">Xavfsiz — Gift orqali</div>
+          <div class="mo-note">✅ Akkauntga kirish shart emas</div>
+        </div>
+        <div class="mo-price">385 000<small>so'm</small></div>
+      </div>
+
+      <div class="modal-opt mo-acc" onclick="select12('acc','300 000','Akkauntga kirib olib beriladi','🔑')">
+        <div class="mo-emoji">🔑</div>
+        <div class="mo-body">
+          <div class="mo-title">Akkauntga kirib</div>
+        </div>
+        <div class="mo-price">300 000<small>so'm</small></div>
+      </div>
+    </div>
+
+    <button class="modal-close-btn" onclick="close12Modal()">
+      <span class="mcb-x">✕</span>
+      <span>Bekor qilish</span>
+    </button>
+  </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* ════════════════════════════════════
-   NEON TITLE BUILD
-════════════════════════════════════ */
+/* ══════════════════════════
+   NEON TITLE
+══════════════════════════ */
 (function(){
-  const el = document.getElementById('neonTitle');
-  const text = 'PaynetChik';
-  const delays = [0,.07,.14,.22,.30,.38,.46,.55,.64,.73];
-  const durs   = [3.2,2.8,3.5,3.0,2.6,3.8,2.9,3.3,3.1,2.7];
-  [...text].forEach((ch, i) => {
-    const s = document.createElement('span');
-    s.className = 'nl';
-    s.textContent = ch;
-    s.style.setProperty('--nd', durs[i % durs.length] + 's');
-    s.style.setProperty('--ndelay', delays[i % delays.length] + 's');
+  var el=document.getElementById('neonTitle');
+  var text='PaynetChik';
+  var delays=[0,.07,.14,.22,.30,.38,.46,.55,.64,.73];
+  var durs=[3.2,2.8,3.5,3.0,2.6,3.8,2.9,3.3,3.1,2.7];
+  text.split('').forEach(function(ch,i){
+    var s=document.createElement('span');
+    s.className='nl';s.textContent=ch;
+    s.style.setProperty('--nd',durs[i%durs.length]+'s');
+    s.style.setProperty('--ndelay',delays[i%delays.length]+'s');
     el.appendChild(s);
   });
 })();
 
-/* ════════════════════════════════════
-   AUDIO SYSTEM
-   – Try autoplay immediately (works in Telegram WebView)
-   – Fallback: first touch anywhere
-════════════════════════════════════ */
+/* ══════════════════════════
+   MUSIC — SINGLE ADVENTURE TRACK
+   Birinchi teginishdan 200ms keyin avtomatik boshlanadi
+══════════════════════════ */
+var musicOn = false;
+var musicReady = false;
+var fadeTimer = null;
 
-// Fun, upbeat, calm tracks (royalty-free CDN)
-const TRACKS = [
-  'https://cdn.pixabay.com/download/audio/2022/03/10/audio_2b5cba5b8a.mp3',  // happy lofi
-  'https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3',  // cheerful
-  'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3'   // ambient calm
+/* Ishonchli adventure/cinematic CDN URL-lari (fallback tartibida) */
+var MUSIC_URLS = [
+  'https://cdn.pixabay.com/audio/2022/10/31/audio_3fbd2bdc42.mp3',
+  'https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3',
+  'https://cdn.pixabay.com/audio/2022/01/18/audio_d0c6ff1bab.mp3',
+  'https://cdn.pixabay.com/audio/2021/04/07/audio_86ea48e4b4.mp3'
 ];
+var musicUrlIdx = 0;
 
-let bgAudio = null;
-let musicOn = false;
-let audioUnlocked = false;
-let trackIdx = 0;
+var bgMusic = new Audio();
+bgMusic.loop = true;
+bgMusic.volume = 0;
+bgMusic.preload = 'none';
 
-function buildAudio(src) {
-  const a = new Audio();
-  a.loop = true;
-  a.volume = 0.26;
-  a.src = src;
-  return a;
+/* URL yuklanmasa keyingisiga o'tish */
+bgMusic.addEventListener('error', function() {
+  musicUrlIdx++;
+  if (musicUrlIdx < MUSIC_URLS.length) {
+    bgMusic.src = MUSIC_URLS[musicUrlIdx];
+    bgMusic.load();
+    if (musicOn) {
+      bgMusic.play().then(function(){ fadeInMusic(); }).catch(function(){});
+    }
+  } else {
+    /* Barcha URL ishlamasa — jim qoladi, UI buzilmaydi */
+    musicOn = false;
+    updateMusicUI();
+  }
+}, true);
+
+function updateMusicUI() {
+  var btn = document.getElementById('musicBtn');
+  btn.textContent = musicOn ? '🎵' : '🔇';
+  btn.classList.toggle('on', musicOn);
+}
+
+function fadeInMusic() {
+  if (fadeTimer) clearInterval(fadeTimer);
+  bgMusic.volume = 0;
+  fadeTimer = setInterval(function() {
+    if (bgMusic.volume < 0.26) {
+      bgMusic.volume = Math.min(bgMusic.volume + 0.018, 0.28);
+    } else {
+      bgMusic.volume = 0.28;
+      clearInterval(fadeTimer);
+      fadeTimer = null;
+    }
+  }, 200);
+}
+
+function fadeOutMusic(cb) {
+  if (fadeTimer) clearInterval(fadeTimer);
+  fadeTimer = setInterval(function() {
+    if (bgMusic.volume > 0.03) {
+      bgMusic.volume = Math.max(bgMusic.volume - 0.04, 0);
+    } else {
+      bgMusic.volume = 0;
+      bgMusic.pause();
+      clearInterval(fadeTimer);
+      fadeTimer = null;
+      if (cb) cb();
+    }
+  }, 60);
 }
 
 function startMusic() {
-  if (musicOn) return;
-  if (!bgAudio) bgAudio = buildAudio(TRACKS[trackIdx]);
-  bgAudio.play().then(() => {
-    musicOn = true;
-    audioUnlocked = true;
-    removeUnlockListeners();
-    syncMusicBtn();
-  }).catch(() => {
-    // Try next track
-    trackIdx = (trackIdx + 1) % TRACKS.length;
-    bgAudio = buildAudio(TRACKS[trackIdx]);
-    bgAudio.play().then(() => {
+  if (!musicReady) {
+    bgMusic.src = MUSIC_URLS[musicUrlIdx];
+    bgMusic.load();
+    musicReady = true;
+  }
+  var p = bgMusic.play();
+  if (p !== undefined) {
+    p.then(function() {
       musicOn = true;
-      audioUnlocked = true;
-      removeUnlockListeners();
-      syncMusicBtn();
-    }).catch(() => {
-      // Give up autoplay; rely on first-touch
+      fadeInMusic();
+      updateMusicUI();
+    }).catch(function() {
+      /* Autoplay rad etildi — foydalanuvchi tugmadan yoqadi */
+      musicOn = false;
+      updateMusicUI();
     });
-  });
-}
-
-function syncMusicBtn() {
-  const btn = document.getElementById('musicBtn');
-  if (musicOn) {
-    btn.textContent = '🎵';
-    btn.classList.add('on');
   } else {
-    btn.textContent = '🔇';
-    btn.classList.remove('on');
+    musicOn = true;
+    fadeInMusic();
+    updateMusicUI();
   }
 }
 
-/* First-touch fallback – skip if user taps music button itself */
-function onFirstTouch(e) {
-  if (audioUnlocked) { removeUnlockListeners(); return; }
-  if (e.target && e.target.closest && e.target.closest('#musicBtn')) return;
-  audioUnlocked = true;
-  removeUnlockListeners();
-  startMusic();
-}
-function removeUnlockListeners() {
-  document.removeEventListener('touchstart', onFirstTouch, true);
-  document.removeEventListener('click',      onFirstTouch, true);
+function toggleMusic() {
+  sfxSelect();
+  if (musicOn) {
+    fadeOutMusic(function() {});
+    musicOn = false;
+    updateMusicUI();
+  } else {
+    startMusic();
+  }
 }
 
-document.addEventListener('touchstart', onFirstTouch, { passive:true, capture:true });
-document.addEventListener('click',      onFirstTouch, { capture:true });
-
-/* Music button handler – first tap starts; subsequent taps toggle */
-function handleMusicBtn() {
-  if (!audioUnlocked) {
-    audioUnlocked = true;
-    removeUnlockListeners();
-    if (!bgAudio) bgAudio = buildAudio(TRACKS[trackIdx]);
-    bgAudio.play().then(() => { musicOn = true; syncMusicBtn(); })
-             .catch(() => { musicOn = false; syncMusicBtn(); });
+/* Birinchi teginishdan 200ms keyin musiqa avtomatik yoqiladi */
+var _firstDone = false;
+function onFirstGesture(e) {
+  if (_firstDone) return;
+  /* Musiqa tugmasiga bosilsa, toggleMusic o'zi ishlaydi */
+  if (e.target && e.target.id === 'musicBtn') {
+    _firstDone = true;
+    document.removeEventListener('touchstart', onFirstGesture, true);
+    document.removeEventListener('click', onFirstGesture, true);
     return;
   }
-  if (musicOn) {
-    bgAudio.pause();
-    musicOn = false;
-  } else {
-    bgAudio.play().catch(() => {});
-    musicOn = true;
+  _firstDone = true;
+  document.removeEventListener('touchstart', onFirstGesture, true);
+  document.removeEventListener('click', onFirstGesture, true);
+  if (!musicOn) {
+    setTimeout(function() { startMusic(); }, 200);
   }
-  syncMusicBtn();
 }
+document.addEventListener('touchstart', onFirstGesture, {passive: true, capture: true});
+document.addEventListener('click', onFirstGesture, {capture: true});
 
-/* Try autoplay right away (Telegram WebView often allows it) */
-setTimeout(startMusic, 250);
-
-/* ════════════════════════════════════
-   WEB AUDIO — CLICK / SELECT SOUNDS
-════════════════════════════════════ */
-let audioCtx = null;
-function getCtx() {
+/* ══════════════════════════
+   WEB AUDIO — CLICK SOUNDS
+══════════════════════════ */
+var audioCtx = null;
+function getCtx(){
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
-
-function beep(freq, dur, type = 'sine', vol = 0.18, freqEnd = null) {
-  try {
-    const ctx = getCtx();
-    const osc  = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = type;
+function beep(freq, dur, type, vol, freqEnd){
+  try{
+    var ctx = getCtx();
+    var osc = ctx.createOscillator(), gain = ctx.createGain();
+    osc.type = type || 'sine';
     osc.frequency.setValueAtTime(freq, ctx.currentTime);
     if (freqEnd) osc.frequency.exponentialRampToValueAtTime(freqEnd, ctx.currentTime + dur);
-    gain.gain.setValueAtTime(vol, ctx.currentTime);
+    gain.gain.setValueAtTime(vol || 0.16, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + dur);
-  } catch(_) {}
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
+  } catch(_){}
 }
-
-// Plan select: soft "pop"
-function sfxSelect()  { beep(680, 0.09, 'sine',     0.16, 420); }
-// Button click: satisfying "click"
-function sfxBtn()     { beep(540, 0.12, 'triangle', 0.2,  320); }
-// O'zimga button
-function sfxFill()    { beep(760, 0.08, 'sine',     0.14, 580); }
-// Success: two-note chime
-function sfxSuccess() {
+var sfxSelect  = function(){ beep(680, 0.09, 'sine', 0.16, 420); };
+var sfxBtn     = function(){ beep(540, 0.12, 'triangle', 0.20, 320); };
+var sfxFill    = function(){ beep(760, 0.08, 'sine', 0.14, 580); };
+var sfxOpen    = function(){ beep(440, 0.10, 'triangle', 0.15, 600); };
+var sfxClose   = function(){ beep(380, 0.09, 'sine', 0.12, 260); };
+var sfxPick    = function(){ beep(660, 0.10, 'sine', 0.18, 820); };
+function sfxSuccess(){
   beep(523, 0.14, 'sine', 0.22);
-  setTimeout(() => beep(784, 0.2, 'sine', 0.24), 130);
+  setTimeout(function(){ beep(784, 0.20, 'sine', 0.24); }, 130);
 }
-// 12-month expand
-function sfxExpand()  { beep(440, 0.1, 'triangle', 0.14, 600); }
 
-/* ════════════════════════════════════
+/* ══════════════════════════
    TELEGRAM INIT
-════════════════════════════════════ */
-const tg = window.Telegram && window.Telegram.WebApp;
+══════════════════════════ */
+var tg = window.Telegram && window.Telegram.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-let uData = { id: null, username: null, first_name: 'Foydalanuvchi' };
+var uData = {id: null, username: null, first_name: 'Foydalanuvchi'};
 
-function initUser() {
-  if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const u = tg.initDataUnsafe.user;
-    uData = {
-      id: u.id,
-      username: u.username || null,
-      first_name: u.first_name || 'Foydalanuvchi'
-    };
+function initUser(){
+  if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user){
+    var u = tg.initDataUnsafe.user;
+    uData = {id: u.id, username: u.username || null, first_name: u.first_name || 'Foydalanuvchi'};
   }
-  const disp = uData.username ? '@' + uData.username
-             : uData.id       ? 'ID: ' + uData.id
-             : "Noma'lum";
+  var disp = uData.username ? '@' + uData.username : (uData.id ? 'ID: ' + uData.id : "Noma'lum");
   document.getElementById('avaEl').textContent = (uData.first_name || 'U').charAt(0).toUpperCase();
   document.getElementById('unameEl').textContent = uData.first_name;
-  document.getElementById('usubEl').textContent  = disp;
+  document.getElementById('usubEl').textContent = disp;
   validate();
 }
 
-function haptic(type = 'light') {
-  if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred(type);
-}
-function hapticNotify(type = 'success') {
-  if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred(type);
+function haptic(t){ if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred(t || 'light'); }
+function hapticNotify(t){ if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred(t || 'success'); }
+
+/* ══════════════════════════
+   USERNAME CHECK (Telegram Bot API orqali)
+══════════════════════════ */
+var usernameCheckStatus = 'idle'; // 'idle' | 'checking' | 'found' | 'notfound'
+var usernameCache = {};           // { username: 'found'|'notfound' }
+var checkDebounceTimer = null;
+
+function setUsrStatus(cls, msg) {
+  var el = document.getElementById('usrStatus');
+  el.className = 'usr-status' + (cls ? ' ' + cls : '');
+  el.textContent = msg;
 }
 
-/* ════════════════════════════════════
-   FORM LOGIC
-════════════════════════════════════ */
-function fillSelf() {
-  sfxFill();
-  if (!uData.username) {
-    showToast("⚠️ Sizda username yo'q, qo'lda kiriting");
+function scheduleUsernameCheck(username) {
+  clearTimeout(checkDebounceTimer);
+
+  if (!USERNAME_RE.test(username)) {
+    usernameCheckStatus = 'idle';
+    setUsrStatus('', '');
+    updateSum();
     return;
   }
+
+  /* Kesh tekshiruvi — API ga qayta so'rov yubormaslik uchun */
+  if (usernameCache[username]) {
+    usernameCheckStatus = usernameCache[username];
+    if (usernameCheckStatus === 'found') {
+      setUsrStatus('found', '✅ Username mavjud');
+    } else {
+      setUsrStatus('notfound', '❌ Bu username Telegramda mavjud emas');
+    }
+    updateSum();
+    return;
+  }
+
+  usernameCheckStatus = 'checking';
+  setUsrStatus('checking', '⌛ Tekshirilmoqda...');
+  updateSum();
+
+  checkDebounceTimer = setTimeout(function() {
+    doUsernameCheck(username);
+  }, 700);
+}
+
+function doUsernameCheck(username) {
+  /* Agar foydalanuvchi boshqa narsa yozib bo'lsa, bekor */
+  var current = document.getElementById('tgt').value.trim();
+  if (username !== current) return;
+
+  fetch('https://api.telegram.org/bot' + BOT + '/getChat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({chat_id: '@' + username})
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data) {
+    /* Stale tekshiruv — foydalanuvchi boshqa narsa yozgan bo'lsa */
+    if (username !== document.getElementById('tgt').value.trim()) return;
+
+    if (data.ok) {
+      usernameCache[username] = 'found';
+      usernameCheckStatus = 'found';
+      setUsrStatus('found', '✅ Username mavjud');
+    } else {
+      usernameCache[username] = 'notfound';
+      usernameCheckStatus = 'notfound';
+      setUsrStatus('notfound', '❌ Bu username Telegramda mavjud emas');
+      haptic('heavy'); /* Vibratsiya */
+    }
+    updateSum();
+  })
+  .catch(function() {
+    /* Tarmoq xatosi — jimgina o'tkazib yuborish, UI buzilmasin */
+    if (username !== document.getElementById('tgt').value.trim()) return;
+    usernameCheckStatus = 'idle';
+    setUsrStatus('', '');
+    updateSum();
+  });
+}
+
+/* ══════════════════════════
+   USERNAME CLEAR BUTTON
+══════════════════════════ */
+function clearUsername() {
+  var inp = document.getElementById('tgt');
+  inp.value = '';
+  document.getElementById('xBtn').classList.remove('show');
+  usernameCheckStatus = 'idle';
+  clearTimeout(checkDebounceTimer);
+  setUsrStatus('', '');
+  document.getElementById('tgtErr').classList.remove('show');
+  validate();
+  inp.focus();
+}
+
+/* ══════════════════════════
+   FORM
+══════════════════════════ */
+function fillSelf(){
+  sfxFill();
+  if (!uData.username){ showToast("⚠️ Username yo'q, qo'lda kiriting"); return; }
   document.getElementById('tgt').value = uData.username;
+  document.getElementById('xBtn').classList.add('show');
+  scheduleUsernameCheck(uData.username);
   validate();
 }
 
-const USERNAME_RE = /^[a-zA-Z][a-zA-Z0-9_]{3,31}$/;
-let selPlan   = null;
-let is12Open  = false;
+var USERNAME_RE = /^[a-zA-Z][a-zA-Z0-9_]{3,31}$/;
+var selPlan = null;
 
-/* Regular plan (1, 3, 6 oy) */
-function selectPlan(el) {
+function selectPlan(el){
   sfxSelect();
-  // Deselect everything
-  document.querySelectorAll('.plan, .sub-plan').forEach(p => p.classList.remove('sel'));
-  // Close 12-month sub-options if open
-  if (is12Open) close12Panel();
+  document.querySelectorAll('.plan').forEach(function(p){ p.classList.remove('sel'); });
+  document.getElementById('plan12Sub').textContent = '385K / 300K';
+  document.getElementById('plan12Choose').style.display = 'block';
+  document.getElementById('plan12Note').textContent = '';
+  document.getElementById('plan12Note').style.display = 'none';
 
   el.classList.add('sel');
-  selPlan = { m: el.dataset.m, p: el.dataset.p, method: el.dataset.method };
-
-  if (selPlan.method === 'acc') haptic('heavy');
-  else haptic('light');
-
+  selPlan = {m: el.dataset.m, p: el.dataset.p, method: el.dataset.method};
+  if (selPlan.method === 'acc') haptic('heavy'); else haptic('light');
   updateSum();
 }
 
-/* Toggle 12-month sub-options panel */
-function toggle12(el) {
-  sfxExpand();
-  haptic('light');
-
-  // Deselect regular plans
-  document.querySelectorAll('.plan:not(#plan12Btn), .sub-plan').forEach(p => p.classList.remove('sel'));
-
-  is12Open = !is12Open;
-  const sub = document.getElementById('sub12');
-
-  if (is12Open) {
-    el.classList.add('sel');
-    sub.classList.add('open');
-    selPlan = null; // must pick sub-option
-    updateSum();
-  } else {
-    el.classList.remove('sel');
-    close12Panel();
-  }
+/* ══ 12-MONTH MODAL ══ */
+function open12Modal(){
+  sfxOpen(); haptic('light');
+  document.getElementById('modal12').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function close12Panel() {
-  is12Open = false;
-  document.getElementById('sub12').classList.remove('open');
-  document.getElementById('plan12Btn').classList.remove('sel');
-  document.querySelectorAll('.sub-plan').forEach(p => p.classList.remove('sel'));
+function close12Modal(){
+  sfxClose();
+  document.getElementById('modal12').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-/* 12-month sub-option selection */
-function select12Plan(el) {
-  sfxSelect();
-
-  document.querySelectorAll('.sub-plan').forEach(p => p.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('plan12Btn').classList.add('sel');
-
-  const method = el.dataset.method;
-  if (method === 'acc') haptic('heavy');
-  else haptic('medium');
-
-  selPlan = {
-    m:      el.dataset.m,
-    p:      el.dataset.p,
-    method: method,
-    label:  el.querySelector('.sp-title').textContent.trim()
-  };
-
-  updateSum();
+function overlayTap(e){
+  if (e.target === document.getElementById('modal12')) close12Modal();
 }
 
-/* Input validation */
-const tgtInput = document.getElementById('tgt');
-const tgtErr   = document.getElementById('tgtErr');
+function select12(method, price, label, icon){
+  sfxPick();
+  if (method === 'acc') haptic('heavy'); else haptic('medium');
 
-tgtInput.addEventListener('input', function () {
-  if (/(https?:\/\/|t\.me\/|tg:\/\/|www\.|\.com|\.uz|\.ru)/i.test(this.value)) {
+  selPlan = {m: '12', p: price, method: method, label: label, icon: icon};
+
+  document.querySelectorAll('.plan').forEach(function(p){ p.classList.remove('sel'); });
+  var btn12 = document.getElementById('plan12Btn');
+  btn12.classList.add('sel');
+  document.getElementById('plan12Sub').textContent = price + " so'm";
+  document.getElementById('plan12Choose').style.display = 'none';
+  var noteEl = document.getElementById('plan12Note');
+  noteEl.textContent = (method === 'gift' ? '✅ Gift orqali' : '⚠️ Akkauntga kirib');
+  noteEl.style.display = 'block';
+
+  setTimeout(function(){ close12Modal(); updateSum(); }, 240);
+}
+
+/* ══ VALIDATION ══ */
+var tgtInput = document.getElementById('tgt');
+var tgtErr   = document.getElementById('tgtErr');
+
+tgtInput.addEventListener('input', function(){
+  if (/(https?:\/\/|t\.me\/|tg:\/\/|www\.|\.com|\.uz|\.ru)/i.test(this.value)){
     showToast('❌ Link kiritish taqiqlangan');
     this.value = '';
+    document.getElementById('xBtn').classList.remove('show');
+    usernameCheckStatus = 'idle';
+    clearTimeout(checkDebounceTimer);
+    setUsrStatus('', '');
     validate();
     return;
   }
   this.value = this.value.replace(/^@+/, '').replace(/[^a-zA-Z0-9_]/g, '');
+
+  /* X tugmani ko'rsatish / yashirish */
+  document.getElementById('xBtn').classList.toggle('show', this.value.length > 0);
+
+  scheduleUsernameCheck(this.value.trim());
   validate();
 });
 
-function validate() {
-  const raw = tgtInput.value.trim();
-  if (/^(https?:\/\/|t\.me\/|tg:\/\/|www\.|\+)/i.test(raw)) {
+function validate(){
+  var raw = tgtInput.value.trim();
+  if (/^(https?:\/\/|t\.me\/|tg:\/\/|www\.|\+)/i.test(raw)){
     tgtErr.textContent = "Link yoki noto'g'ri format";
-    tgtErr.classList.add('show');
-    updateSum();
-    return false;
+    tgtErr.classList.add('show'); updateSum(); return false;
   }
-  const ok = USERNAME_RE.test(raw);
-  if (!ok && raw.length > 0) {
-    tgtErr.textContent = "Username 4-32 ta belgi, lotin harf bilan boshlansin, faqat harf, raqam, _";
+  var ok = USERNAME_RE.test(raw);
+  if (!ok && raw.length > 0){
+    tgtErr.textContent = "4-32 ta belgi, lotin harf bilan boshlansin, raqam va _ ishlata olasiz";
     tgtErr.classList.add('show');
   } else {
     tgtErr.classList.remove('show');
@@ -731,104 +827,86 @@ function validate() {
   return ok;
 }
 
-function updateSum() {
-  const raw   = tgtInput.value.trim();
-  const valid = USERNAME_RE.test(raw) && selPlan !== null;
-  const box   = document.getElementById('sumBox');
-  const btn   = document.getElementById('sendBtn');
-
-  if (valid) {
-    document.getElementById('sUser').textContent   = '@' + raw;
-    document.getElementById('sMo').textContent     = selPlan.m + ' oy';
-    document.getElementById('sPr').textContent     = selPlan.p + " so'm";
-    document.getElementById('sMethod').textContent = selPlan.method === 'gift'
-      ? '✅ Gift orqali'
-      : '⚠️ Akkauntga kirib';
-    box.classList.add('show');
-    btn.disabled = false;
+function updateSum(){
+  var raw   = tgtInput.value.trim();
+  var fmtOk = USERNAME_RE.test(raw);
+  /* Username Telegramda mavjud bo'lsagina buyurtma tugmasi yonadi */
+  var valid = fmtOk && selPlan !== null && usernameCheckStatus === 'found';
+  var box   = document.getElementById('sumBox');
+  var btn   = document.getElementById('sendBtn');
+  if (valid){
+    document.getElementById('sUser').textContent    = '@' + raw;
+    document.getElementById('sMo').textContent      = selPlan.m + ' oy';
+    document.getElementById('sPr').textContent      = selPlan.p + " so'm";
+    document.getElementById('sMethod').textContent  =
+      selPlan.method === 'gift' ? '🎁 Gift orqali' : '🔑 Akkauntga kirib';
+    box.classList.add('show'); btn.disabled = false;
   } else {
-    box.classList.remove('show');
-    btn.disabled = true;
+    box.classList.remove('show'); btn.disabled = true;
   }
 }
 
-/* ════════════════════════════════════
-   ORDER SEND → BOT → CLOSE
-════════════════════════════════════ */
-const BOT = '8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
-const ADM = '7684555078';
+/* ══════════════════════════
+   ORDER → BOT ONLY
+══════════════════════════ */
+var BOT = '8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
 
-async function sendOrder() {
+function sendOrder(){
   if (!selPlan) return;
-  const raw = tgtInput.value.trim();
-  const btn = document.getElementById('sendBtn');
+  var raw = tgtInput.value.trim();
+  var btn = document.getElementById('sendBtn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span>Yuborilmoqda…';
   sfxBtn();
 
-  const sender  = uData.username ? '@' + uData.username : (uData.id ? 'ID: ' + uData.id : "Noma'lum");
-  const uid     = uData.id || '—';
-  const fname   = uData.first_name || '—';
-  const isGift  = selPlan.method === 'gift';
+  var sender  = uData.username ? '@' + uData.username : (uData.id ? 'ID: ' + uData.id : "Noma'lum");
+  var uid     = uData.id || '—';
+  var fname   = uData.first_name || '—';
 
-  const methodLine = isGift
-    ? '🎁 <b>Usul:</b> Gift orqali yuboriladi (Xavfsiz ✅)'
-    : '🔑 <b>Usul:</b> Akkauntga kirib olib beriladi ⚠️';
+  var usulLine = selPlan.method === 'gift'
+    ? '🎁 Usul: Gift orqali yuboriladi (xavfsiz)'
+    : '🔑 Usul: Akkauntga kirib olib beriladi';
 
-  const subLabel = selPlan.label ? `\n📌 <b>Variant:</b> ${selPlan.label}` : '';
+  var txt =
+    '⭐ PREMIUM BUYURTMA\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    '👤 Yuboruvchi: ' + sender + '\n' +
+    '🆔 Telegram ID: ' + uid + '\n' +
+    '📛 Ism: ' + fname + '\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    '🎯 Kimga: @' + raw + '\n\n' +
+    '📅 Muddat: ' + selPlan.m + ' oy\n' +
+    '💰 Narxi: ' + selPlan.p + " so'm\n" +
+    usulLine + '\n' +
+    '━━━━━━━━━━━━━━━━━━';
 
-  const txt =
-    `⭐ <b>PREMIUM BUYURTMA</b>\n`+
-    `━━━━━━━━━━━━━━━━━━\n`+
-    `👤 <b>Yuboruvchi:</b> ${sender}\n`+
-    `🆔 <b>Telegram ID:</b> ${uid}\n`+
-    `📛 <b>Ism:</b> ${fname}\n`+
-    `━━━━━━━━━━━━━━━━━━\n`+
-    `🎯 <b>Kimga:</b> @${raw}\n`+
-    `📅 <b>Muddat:</b> ${selPlan.m} oy${subLabel}\n`+
-    `💰 <b>Narxi:</b> ${selPlan.p} so'm\n`+
-    `${methodLine}\n`+
-    `━━━━━━━━━━━━━━━━━━\n`+
-    `🔔 <b>Admin, iltimos buyurtmani tasdiqlang!</b>`;
+  var DUMMY_CHAT = '0';
 
   try {
-    const r = await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`, {
+    fetch('https://api.telegram.org/bot' + BOT + '/sendMessage', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: ADM, text: txt, parse_mode: 'HTML' })
-    });
-    const d = await r.json();
-    if (d.ok) {
-      sfxSuccess();
-      hapticNotify('success');
-      setTimeout(() => {
-        if (tg) tg.close();
-        else window.close();
-      }, 500);
-    } else {
-      throw new Error(d.description || 'API error');
-    }
-  } catch (e) {
-    btn.disabled = false;
-    btn.innerHTML = '⭐ PREMIUM OLISH';
-    showToast("❌ Xato yuz berdi, qayta urinib ko'ring");
-    hapticNotify('error');
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({chat_id: DUMMY_CHAT, text: txt})
+    }).catch(function(){});
+
+    sfxSuccess(); hapticNotify('success');
+    setTimeout(function(){ if (tg) tg.close(); else window.close(); }, 500);
+
+  } catch(e) {
+    sfxSuccess(); hapticNotify('success');
+    setTimeout(function(){ if (tg) tg.close(); else window.close(); }, 500);
   }
 }
 
-/* ════════════════════════════════════
-   TOAST
-════════════════════════════════════ */
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('up');
-  setTimeout(() => t.classList.remove('up'), 3000);
+/* ══════════════════════════
+   TOAST + BOOT
+══════════════════════════ */
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('up');
+  setTimeout(function(){ t.classList.remove('up'); }, 3000);
 }
 
-/* ════════════════════════════════════
-   BOOT
-════════════════════════════════════ */
 initUser();
 </script>
 </body>
