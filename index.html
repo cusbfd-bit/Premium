@@ -16,11 +16,9 @@ body{
   background-attachment:fixed;
   color:#eeeeff;
   font-family:'DM Sans',system-ui,sans-serif;
-  font-weight:700; /* bold classic */
+  font-weight:700;
   -webkit-font-smoothing:antialiased;
 }
-
-/* ══ MUSIC BTN ══ */
 .music-btn{
   position:fixed;top:14px;right:14px;z-index:600;
   width:42px;height:42px;border-radius:50%;
@@ -38,12 +36,7 @@ body{
   background:rgba(76,29,149,.55);border-color:rgba(139,92,246,.5);
   box-shadow:0 0 14px rgba(139,92,246,.35);
 }
-
-/* ══ WRAP ══ */
 .wrap{max-width:420px;margin:0 auto;padding:14px 12px 32px;min-height:100vh;}
-
-/* ══ NEON HEADER ══
-   Opacity animatsiyasi ishlatiladi — GPU da composited, paint yo'q */
 .neon-header{text-align:center;margin-bottom:16px;padding:6px 0;}
 .neon-title{
   font-family:'Playfair Display',Georgia,serif;
@@ -57,7 +50,6 @@ body{
   will-change:opacity;
   animation:nFlick var(--nd,7s) var(--ndelay,0s) infinite;
 }
-/* ── opacity-only: GPU composited, har frame paint yo'q ── */
 @keyframes nFlick{
   0%,27%,37%,67%,75%,100%{opacity:1;}
   30%,32%{opacity:.06;}
@@ -74,8 +66,6 @@ body{
   animation:subP 3.2s ease-in-out infinite;
 }
 @keyframes subP{0%,100%{opacity:.6;}50%{opacity:1;}}
-
-/* ══ CARD — blur azaytirildi (48→16px), og'irlik kamaydi ══ */
 .card{
   background:rgba(14,8,36,0.82);
   border:1px solid rgba(160,120,255,0.22);
@@ -84,14 +74,12 @@ body{
   -webkit-backdrop-filter:blur(16px) saturate(1.2);
   box-shadow:0 8px 40px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);
   position:relative;overflow:hidden;
-  contain:paint; /* repaints faqat card ichida */
+  contain:paint;
 }
 .card::before{
   content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(180,150,255,.32),transparent);
 }
-
-/* ══ USER BAR ══ */
 .user-bar{
   display:flex;align-items:center;gap:10px;
   background:rgba(255,255,255,0.055);border:1px solid rgba(139,92,246,0.18);
@@ -106,12 +94,8 @@ body{
 }
 .uname{font-weight:800;font-size:.88rem;color:#e8e8ff;}
 .usub{font-size:.70rem;color:#6b6b8a;margin-top:1px;font-weight:600;}
-
-/* ══ LABEL ══ */
 .lbl{font-size:.63rem;font-weight:800;color:#7070a0;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:7px;}
 .mt12{margin-top:13px;}
-
-/* ══ INPUT ROW: [input][✕][O'zimga] ══ */
 .inp-row{display:flex;gap:7px;margin-bottom:2px;align-items:stretch;}
 .inp-wrap{position:relative;flex:1;min-width:0;}
 .at-sign{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#a78bfa;font-weight:800;font-size:.95rem;pointer-events:none;}
@@ -127,8 +111,6 @@ body{
   background:rgba(255,255,255,0.08);
 }
 .inp-wrap input::placeholder{color:#55556a;font-weight:500;}
-
-/* ✕ — inputdan keyin */
 .x-btn{
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.13);
@@ -141,8 +123,6 @@ body{
 }
 .x-btn.show{display:flex;}
 .x-btn:active{transform:scale(.90);background:rgba(255,255,255,.16);}
-
-/* O'zimga — eng oxirida */
 .ozimga-btn{
   background:linear-gradient(135deg,#4c1d95,#7c3aed);
   border:none;border-radius:13px;padding:0 14px;color:#fff;
@@ -152,11 +132,8 @@ body{
   transition:transform .1s;will-change:transform;
 }
 .ozimga-btn:active{transform:scale(.93);}
-
 .inp-err{font-size:.68rem;color:#f87171;margin-top:3px;margin-bottom:2px;display:none;font-weight:700;}
 .inp-err.show{display:block;}
-
-/* ══ PLANS — backdrop-filter olib tashlandi, solid fon ══ */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .plan{
   background:rgba(255,255,255,0.055);
@@ -174,7 +151,6 @@ body{
   box-shadow:0 0 0 3px rgba(139,92,246,.22),0 6px 22px rgba(76,29,149,.28);
 }
 .p-mo{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:#eeeeff;letter-spacing:.4px;}
-/* ── Tillarang narxlar ── */
 .p-pr{
   font-family:'Playfair Display',Georgia,serif;
   font-size:.82rem;font-weight:700;
@@ -190,8 +166,6 @@ body{
   color:#000;font-size:.54rem;font-weight:900;
   padding:2px 6px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;
 }
-
-/* goldPulse: opacity animatsiyasi (GPU composited, box-shadow emas) */
 .plan-12-trigger{
   will-change:opacity;
   animation:goldPulse 2.8s ease-in-out infinite;
@@ -201,8 +175,6 @@ body{
   50%{opacity:.84;}
 }
 .p-choose{font-size:.63rem;color:#a78bfa;margin-top:4px;font-weight:700;}
-
-/* ══ SUMMARY ══ */
 .summary{
   background:rgba(76,29,149,0.09);border:1px solid rgba(139,92,246,0.18);
   border-radius:14px;padding:11px 14px;
@@ -214,8 +186,6 @@ body{
 .s-row span:last-child{color:#d0d0ee;font-weight:800;}
 .s-row.tot{margin-top:8px;padding-top:9px;border-top:1px solid rgba(255,255,255,.08);font-weight:800;}
 .s-row.tot span:last-child{color:#f5c842;font-size:.92rem;text-shadow:0 0 6px rgba(245,200,66,.3);}
-
-/* ══ MAIN BTN — shimmer: transform (GPU) dan foydalanadi ══ */
 .btn-wrap{padding:14px 0 0;}
 .btn{
   width:100%;background:linear-gradient(135deg,#4c1d95,#5b21b6,#7c3aed);
@@ -230,7 +200,6 @@ body{
 }
 .btn:disabled{opacity:.28;cursor:not-allowed;box-shadow:none;border-color:rgba(255,255,255,.05);}
 .btn:not(:disabled):active{transform:scale(.975);}
-/* shimmer: translateX (GPU composited, left emas) */
 .btn::before{
   content:'';position:absolute;top:0;bottom:0;left:0;width:36%;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
@@ -239,8 +208,6 @@ body{
   will-change:transform;
 }
 @keyframes shim{0%{transform:translateX(-160%);}100%{transform:translateX(500%);}}
-
-/* ══ MODAL ══ */
 .modal-overlay{
   position:fixed;inset:0;z-index:1000;
   display:flex;align-items:flex-end;justify-content:center;
@@ -298,8 +265,6 @@ body{
 }
 .modal-close-btn:active{transform:scale(.94);background:rgba(255,255,255,.1);}
 .mcb-x{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:rgba(255,255,255,.1);border-radius:50%;font-size:.65rem;flex-shrink:0;}
-
-/* ══ TOAST ══ */
 .toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(90px);
   background:rgba(6,3,18,.97);border:1px solid rgba(139,92,246,.28);border-radius:12px;
@@ -335,7 +300,6 @@ body{
     </div>
 
     <div class="lbl">Kimga yuborish</div>
-    <!-- Tartib: [input] [✕] [O'zimga] -->
     <div class="inp-row">
       <div class="inp-wrap">
         <span class="at-sign">@</span>
@@ -349,17 +313,17 @@ body{
 
     <div class="lbl mt12">Muddatni tanlang</div>
     <div class="plans">
-      <div class="plan" data-m="1" data-p="44 000" data-method="acc" onclick="selectPlan(this)">
+      <div class="plan" data-m="1" data-p="44000" data-method="acc" onclick="selectPlan(this)">
         <div class="p-mo">1 Oy</div>
         <div class="p-pr">44 000 so'm</div>
         <div class="p-note">⚠️ Akkauntga kirib olib beriladi</div>
       </div>
-      <div class="plan" data-m="3" data-p="165 000" data-method="gift" onclick="selectPlan(this)">
+      <div class="plan" data-m="3" data-p="165000" data-method="gift" onclick="selectPlan(this)">
         <div class="p-mo">3 Oy</div>
         <div class="p-pr">165 000 so'm</div>
         <div class="p-note">✅ Gift orqali yuboriladi</div>
       </div>
-      <div class="plan" data-m="6" data-p="220 000" data-method="gift" onclick="selectPlan(this)">
+      <div class="plan" data-m="6" data-p="220000" data-method="gift" onclick="selectPlan(this)">
         <div class="p-mo">6 Oy</div>
         <div class="p-pr">220 000 so'm</div>
         <div class="p-note">✅ Gift orqali yuboriladi</div>
@@ -387,7 +351,6 @@ body{
   </div>
 </div>
 
-<!-- 12-Month Modal -->
 <div class="modal-overlay" id="modal12" onclick="overlayTap(event)">
   <div class="modal-box">
     <div class="modal-handle"></div>
@@ -397,7 +360,7 @@ body{
       <div class="modal-sub">Qaysi usul qulay?</div>
     </div>
     <div class="modal-opts">
-      <div class="modal-opt" onclick="select12('gift','385 000','Gift orqali (xavfsiz)','🎁')">
+      <div class="modal-opt" onclick="select12('gift','385000','Gift orqali (xavfsiz)','🎁')">
         <div class="mo-emoji">🔒</div>
         <div class="mo-body">
           <div class="mo-title">Xavfsiz — Gift orqali</div>
@@ -405,7 +368,7 @@ body{
         </div>
         <div class="mo-price">385 000<small>so'm</small></div>
       </div>
-      <div class="modal-opt mo-acc" onclick="select12('acc','300 000','Akkauntga kirib olib beriladi','🔑')">
+      <div class="modal-opt mo-acc" onclick="select12('acc','300000','Akkauntga kirib olib beriladi','🔑')">
         <div class="mo-emoji">🔑</div>
         <div class="mo-body">
           <div class="mo-title">Akkauntga kirib</div>
@@ -439,39 +402,23 @@ body{
   });
 })();
 
-/* ══════════════════════════════════════
-   MUSIC — SOKIN ADVENTURE
-   ▸ Tugma: bosish=play, yana bosish=pause, yana=resume
-   ▸ src sahifa yuklanganda o'rnatiladi (preload='auto')
-   ▸ Fallback: xato bo'lsa keyingi trekga o'tadi
-══════════════════════════════════════ */
+/* ── MUSIC ── */
 var TRACKS = [
-  /* Sokin adventure 1 */
   'https://cdn.pixabay.com/audio/2022/10/31/audio_3fbd2bdc42.mp3',
-  /* Sokin adventure 2 */
   'https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3',
-  /* Fallback 1 */
   'https://cdn.pixabay.com/download/audio/2022/03/09/audio_c24db85740.mp3',
-  /* Fallback 2 */
   'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d1718ab41b.mp3'
 ];
-
-/* Har sessiyada boshqa trekdan boshlanadi */
 var _si  = parseInt(sessionStorage.getItem('_mti')||'0');
 var tIdx = _si % TRACKS.length;
 sessionStorage.setItem('_mti', String((tIdx+1) % TRACKS.length));
-
 var musicOn  = false;
 var errCnt   = 0;
 var fadeT    = null;
-
-/* src sahifa yuklanganda tayinlanadi — button bosishda delay yo'q */
 var aud = new Audio(TRACKS[tIdx]);
 aud.loop    = true;
 aud.volume  = 0;
 aud.preload = 'auto';
-
-/* URL yuklanmasa keyingi fallbackga o'tish */
 aud.addEventListener('error', function(){
   errCnt++;
   if(errCnt < TRACKS.length){
@@ -483,7 +430,6 @@ aud.addEventListener('error', function(){
     musicOn = false; _syncUI();
   }
 }, true);
-
 function _fadeIn(){
   if(fadeT) clearInterval(fadeT);
   aud.volume = 0;
@@ -492,7 +438,6 @@ function _fadeIn(){
     else{ aud.volume=0.28; clearInterval(fadeT); fadeT=null; }
   }, 80);
 }
-
 function _fadeOut(){
   if(fadeT) clearInterval(fadeT);
   fadeT = setInterval(function(){
@@ -500,29 +445,23 @@ function _fadeOut(){
     else{ aud.volume=0; aud.pause(); clearInterval(fadeT); fadeT=null; }
   }, 60);
 }
-
 function _syncUI(){
   var btn = document.getElementById('musicBtn');
   btn.textContent = musicOn ? '🎵' : '🔇';
   btn.classList.toggle('on', musicOn);
 }
-
-/* ── TOGGLE: bosish=play/pause ── */
 function toggleMusic(){
   if(musicOn){
-    /* Yoqiq → o'chirish */
     _fadeOut();
     musicOn = false;
     _syncUI();
   } else {
-    /* O'chiq → yoqish (gesture ichida, ruxsat berilgan) */
     aud.volume = 0;
     var p = aud.play();
     if(p && p.then){
       p.then(function(){
         musicOn = true; _fadeIn(); _syncUI();
       }).catch(function(){
-        /* Brauzer blok qildi — qayta urinib ko'rish */
         errCnt++;
         if(errCnt < TRACKS.length){
           var ni = (tIdx + errCnt) % TRACKS.length;
@@ -539,7 +478,7 @@ function toggleMusic(){
   }
 }
 
-/* ── WEB AUDIO CLICK SOUNDS ── */
+/* ── SFX ── */
 var _actx = null;
 function _ctx(){
   if(!_actx) _actx=new(window.AudioContext||window.webkitAudioContext)();
@@ -625,7 +564,8 @@ function select12(method,price,label,icon){
   selPlan={m:'12',p:price,method:method,label:label,icon:icon};
   document.querySelectorAll('.plan').forEach(function(p){p.classList.remove('sel');});
   document.getElementById('plan12Btn').classList.add('sel');
-  document.getElementById('plan12Sub').textContent=price+" so'm";
+  var priceDisp = (parseInt(price,10)/1000)+"K";
+  document.getElementById('plan12Sub').textContent=priceDisp+" so'm";
   document.getElementById('plan12Choose').style.display='none';
   var n=document.getElementById('plan12Note');
   n.textContent=(method==='gift'?'✅ Gift orqali':'⚠️ Akkauntga kirib');
@@ -669,40 +609,62 @@ function updateSum(){
   if(valid){
     document.getElementById('sUser').textContent='@'+raw;
     document.getElementById('sMo').textContent=selPlan.m+' oy';
-    document.getElementById('sPr').textContent=selPlan.p+" so'm";
+    document.getElementById('sPr').textContent=Number(selPlan.p).toLocaleString('en-US')+" so'm";
     document.getElementById('sMethod').textContent=selPlan.method==='gift'?'🎁 Gift orqali':'🔑 Akkauntga kirib';
     box.classList.add('show');btn.disabled=false;
   }else{box.classList.remove('show');btn.disabled=true;}
 }
 
-/* ── ORDER ── */
-var BOT='8948376784:AAH-6yXMsitlZbKpKMXvfWRuCHnzzu_Lugs';
+/* ══════════════════════════════════════
+   ORDER — TELEGRAM.WEBAPP.SENDDATA() ORQALI
+   Botga aynan shu formatda ma'lumot boradi:
+   { type:'premium', branch:'kirib'|'kirmasdan',
+     months:Number, price:Number, target_username:'@...' }
+   method 'acc'  → branch 'kirib'
+   method 'gift' → branch 'kirmasdan'
+══════════════════════════════════════ */
 function sendOrder(){
   if(!selPlan)return;
   var raw=tgtInput.value.trim();
+  if(!USERNAME_RE.test(raw)){
+    showToast('❌ Username noto\'g\'ri formatda');
+    return;
+  }
+  if(!tg || !tg.sendData){
+    showToast('❌ Telegram muhitida oching');
+    return;
+  }
+
   var btn=document.getElementById('sendBtn');
   btn.disabled=true;
   btn.innerHTML='<span class="spinner"></span>Yuborilmoqda…';
   sfxBtn();
-  var sender=uData.username?'@'+uData.username:(uData.id?'ID: '+uData.id:"Noma'lum");
-  var txt=
-    '⭐ PREMIUM BUYURTMA\n'+
-    '━━━━━━━━━━━━━━━━━━\n'+
-    '👤 Yuboruvchi: '+sender+'\n'+
-    '🆔 Telegram ID: '+(uData.id||'—')+'\n'+
-    '📛 Ism: '+(uData.first_name||'—')+'\n'+
-    '━━━━━━━━━━━━━━━━━━\n'+
-    '🎯 Kimga: @'+raw+'\n\n'+
-    '📅 Muddat: '+selPlan.m+' oy\n'+
-    '💰 Narxi: '+selPlan.p+" so'm\n"+
-    (selPlan.method==='gift'?'🎁 Usul: Gift orqali yuboriladi (xavfsiz)':'🔑 Usul: Akkauntga kirib olib beriladi')+'\n'+
-    '━━━━━━━━━━━━━━━━━━';
-  fetch('https://api.telegram.org/bot'+BOT+'/sendMessage',{
-    method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({chat_id:'0',text:txt})
-  }).catch(function(){});
-  sfxSuccess();hapticNotify('success');
-  setTimeout(function(){if(tg)tg.close();else window.close();},500);
+
+  var branch = (selPlan.method === 'acc') ? 'kirib' : 'kirmasdan';
+  var months = parseInt(selPlan.m, 10);
+  var price  = parseInt(String(selPlan.p).replace(/\s/g,''), 10);
+
+  var payload = {
+    type: 'premium',
+    branch: branch,
+    months: months,
+    price: price,
+    target_username: '@' + raw
+  };
+
+  sfxSuccess();
+  hapticNotify('success');
+
+  try{
+    tg.sendData(JSON.stringify(payload));
+  }catch(e){
+    showToast('❌ Yuborishda xatolik: ' + e.message);
+    btn.disabled=false;
+    btn.innerHTML='⭐ PREMIUM OLISH';
+    return;
+  }
+
+  setTimeout(function(){ tg.close(); }, 300);
 }
 
 /* ── TOAST + INIT ── */
@@ -715,3 +677,4 @@ initUser();
 </script>
 </body>
 </html>
+
